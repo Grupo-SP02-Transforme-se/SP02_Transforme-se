@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - FinUp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cadastro.css">
+  <link rel="shortcut icon" href="/assets/Logo da FinUp_ Educação Financeira.png" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+    <div class="left-side">
+      <div class="logo">
+        <img src="/assets/Logo da FinUp_ Educação Financeira.png" alt="FinUp Logo">
+        <h2>FinUp</h2>
+      </div>
+      <h1>Comece sua jornada financeira</h1>
+      <p>Crie sua conta e dê o primeiro passo rumo à liberdade financeira com nossos desafios e ferramentas exclusivas.</p>
+
+      <ul>
+        <li>🎯 Metas financeiras personalizadas</li>
+        <li>📈 Relatórios e estatísticas do seu progresso</li>
+        <li>🏅 Recompensas exclusivas para membros</li>
+      </ul>
+    </div>
+
+    <div class="right-side">
+      <h2>Criar conta na FinUp</h2>
+      <p>Preencha os campos abaixo para começar</p>
+
+      <form>
+        <label for="name">Nome completo</label>
+        <input type="text" id="name" placeholder="Seu nome completo" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com" required>
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Crie uma senha" required>
+
+        <label for="confirm-password">Confirmar senha</label>
+        <input type="password" id="confirm-password" placeholder="Repita sua senha" required>
+
+        <button type="submit" class="btn-primary">Cadastrar</button>
+
+        <div class="divider">ou</div>
+
+        <button type="button" class="btn-google">
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google">
+          Continuar com Google
+        </button>
+
+        <p class="login-link">Já tem uma conta? <a href="/index.html">Entrar</a></p>
+      </form>
+    </div>
+  </div>
+<script src="cadastro.js"></script>
+</body>
+</html>

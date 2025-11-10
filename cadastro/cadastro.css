@@ -1,0 +1,254 @@
+/*   Paleta de cores FinUp  */
+:root {
+    --lilas-principal: #8B5FBF;
+    --lilas-claro: #B19CD9;
+    --lilas-suave: #E6E6FA;
+    --dourado: #FFD700;
+    --dourado-escuro: #D4AF37;
+    --background: #F8F9FA;
+    --texto: #333333;
+    --texto-claro: #6C757D;
+    --branco: #FFFFFF;
+    --sombra: rgba(139, 95, 191, 0.15);
+    --sombra-forte: rgba(139, 95, 191, 0.25);
+    --borda: #E2E8F0;
+    --cinza-claro: #F5F5F5;
+}
+
+/*  Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+/* Estrutura geral */
+.container {
+    display: flex;
+    width: 900px;
+    height: 550px;
+    background: var(--branco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--sombra);
+}
+
+/* Lado esquerdo  */
+.left-side {
+    flex: 1;
+    background: linear-gradient(135deg, var(--lilas-principal), var(--lilas-claro));
+    color: var(--branco);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.left-side h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.left-side p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.left-side ul {
+    list-style: none;
+    font-size: 14px;
+}
+
+.left-side ul li {
+    margin-bottom: 10px;
+}
+
+/* Lado direito (formulário) */
+.right-side {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    color: var(--texto);
+}
+
+.right-side h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--lilas-principal);
+}
+
+.right-side p {
+    font-size: 14px;
+    color: var(--texto-claro);
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+/*  Campos do formulário */
+label {
+    font-size: 14px;
+    color: var(--texto);
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+    background-color: var(--cinza-claro);
+    margin-bottom: 15px;
+    outline: none;
+    transition: 0.3s;
+    color: var(--texto);
+}
+
+input:focus {
+    border-color: var(--lilas-principal);
+    box-shadow: 0 0 0 2px var(--sombra-forte);
+    background-color: var(--branco);
+}
+
+/*  Botões principais */
+.btn-primary {
+    background: linear-gradient(135deg, var(--lilas-principal), var(--lilas-claro));
+    color: var(--branco);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px var(--sombra);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 12px var(--sombra-forte);
+}
+
+
+  /*  Botão Google */
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--branco);
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+    color: var(--texto);
+}
+
+.btn-google img {
+    width: 20px;
+}
+
+.btn-google:hover {
+    background: var(--cinza-claro);
+}
+
+
+   /* Divisor (ou) */
+
+.divider {
+    text-align: center;
+    color: var(--texto-claro);
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider::before, 
+.divider::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 1px;
+    background: var(--borda);
+    top: 50%;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/*  Link de login */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--texto-claro);
+    display: block;
+}
+
+.login-link a {
+    color: var(--lilas-principal);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .left-side, .right-side {
+        padding: 30px 25px;
+    }
+
+    .left-side {
+        text-align: center;
+        align-items: center;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .left-side ul {
+        text-align: left;
+        max-width: 280px;
+    }
+}
