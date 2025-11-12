@@ -21,4 +21,11 @@
 <body>
   <h1>Bem-vindo à FinUp 💰</h1>
 </body>
+<script>
+  const usuario = localStorage.getItem('usuarioLogado');
+  if (!usuario) {
+    window.location.href = '/index.html';
+  }
+</script>
+
 </html>

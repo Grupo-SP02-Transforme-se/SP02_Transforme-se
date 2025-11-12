@@ -2,8 +2,8 @@
 
 // Banco de dados fake para teste
 const dbService = [
-  { email: 'teste@finup.com', senha: '123456' },
-  { email: 'matheus@finup.com', senha: 'abc123' }
+  { email: 'teste@finup.com', senha: '12345678' },
+  { email: 'matheus@finup.com', senha: 'abc12378' }
 ];
 
 // Seletores
@@ -37,7 +37,7 @@ btnPrimary.addEventListener('click', (e) => {
     // Armazena login no localStorage (opcional)
     localStorage.setItem('usuarioLogado', email);
     // Redireciona para a página principal
-    window.location.href = 'home.html';
+    window.location.href = '../home.html';
   } else {
     erroMsg.textContent = 'Usuário ou senha inválidos.';
   }
