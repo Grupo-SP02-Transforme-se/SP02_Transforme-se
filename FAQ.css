@@ -254,6 +254,9 @@ header {
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
   color: var(--cor-branca);
 }
+.faq-card  .title{
+  color: var(--cor-branca);
+}
 
 .faq-item {
   display: flex;
