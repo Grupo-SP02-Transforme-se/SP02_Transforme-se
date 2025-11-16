@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const msg = document.getElementById('msg');
   const inputs = form.querySelectorAll('input');
 
-  const dbService = [
-    { email: 'teste@finup.com', senha: '12345678', nome: 'Usuário Teste' }
-  ];
+  let dbService = JSON.parse(localStorage.getItem('dbService') || '[]');
+  
+  if (!dbService.some(u => u.email === 'teste@finup.com')) {
+    dbService.push({ email: 'teste@finup.com', senha: '12345678', nome: 'Usuário Teste' });
+    localStorage.setItem('dbService', JSON.stringify(dbService));
+  }
 
   initializeGoogleAuth();
 
@@ -37,17 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (dbService.some(u => u.email === email.value)) {
+    const dbServiceAtual = JSON.parse(localStorage.getItem('dbService') || '[]');
+    if (dbServiceAtual.some(u => u.email === email.value)) {
       showError('Este e-mail já está cadastrado!');
       highlightInvalid([email]);
       return;
     }
 
-    dbService.push({
+    const novoUsuario = {
       nome: name.value,
       email: email.value,
       senha: password.value
-    });
+    };
+
+    dbServiceAtual.push(novoUsuario);
+    localStorage.setItem('dbService', JSON.stringify(dbServiceAtual));
 
     showSuccess('Cadastro realizado com sucesso!');
     localStorage.setItem('usuarioLogado', JSON.stringify({ 
@@ -55,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       email: email.value 
     }));
 
-    setTimeout(() => window.location.href = "../home.html", 1200);
+    setTimeout(() => window.location.href = "/Home/home.html", 1200);
   });
 
   function showError(text) {
@@ -91,8 +98,7 @@ function initializeGoogleAuth() {
     
     google.accounts.id.initialize({
       client_id: "32096085213-j21nv2218r61u3ic4421lpgh8sbbgdco.apps.googleusercontent.com",
-      callback: handleGoogleCredentialResponse,
-      context: "signup"
+      callback: handleGoogleCredentialResponse
     });
 
     google.accounts.id.renderButton(
@@ -100,9 +106,7 @@ function initializeGoogleAuth() {
       { 
         theme: "outline", 
         size: "large",
-        type: "standard",
-        text: "signup_with",
-        shape: "rectangular"
+        text: "continue_with"
       }
     );
     
@@ -115,20 +119,36 @@ function initializeGoogleAuth() {
 function handleGoogleCredentialResponse(response) {
   console.log("Google Credential Response:", response);
   
+  if (!response || !response.credential) {
+    console.error('Resposta inválida do Google:', response);
+    showMessage('Erro: Não foi possível processar o login com Google', 'error');
+    return;
+  }
+  
   try {
     const user = parseJwt(response.credential);
     console.log("User Info from Google:", user);
+    
+    if (!user.email || !user.email.includes('@')) {
+      showMessage('Email inválido recebido do Google', 'error');
+      return;
+    }
     
     const dbService = JSON.parse(localStorage.getItem('dbService') || '[]');
     const usuarioExistente = dbService.find(u => u.email === user.email);
     
     if (usuarioExistente) {
-      showMessage('Este e-mail já está cadastrado! Faça login instead.', 'error');
+      showMessage('Este e-mail já está cadastrado! Faça login em vez de cadastrar.', 'error');
+      
+      setTimeout(() => {
+        window.location.href = "../home/home.html";
+      }, 2000);
       return;
     }
 
+    // Cadastrar novo usuário do Google
     const novoUsuario = {
-      nome: user.name,
+      nome: user.name || user.email.split('@')[0],
       email: user.email,
       senha: 'google_oauth',
       picture: user.picture
@@ -137,8 +157,9 @@ function handleGoogleCredentialResponse(response) {
     dbService.push(novoUsuario);
     localStorage.setItem('dbService', JSON.stringify(dbService));
     
+
     localStorage.setItem('usuarioLogado', JSON.stringify({ 
-      nome: user.name, 
+      nome: user.name || user.email.split('@')[0],
       email: user.email,
       picture: user.picture 
     }));
@@ -146,7 +167,7 @@ function handleGoogleCredentialResponse(response) {
     showMessage('Cadastro com Google realizado com sucesso!', 'success');
     
     setTimeout(() => {
-      window.location.href = "../home.html";
+      window.location.href = "../home/home.html";
     }, 1500);
     
   } catch (error) {
@@ -171,8 +192,9 @@ function parseJwt(token) {
 
 function showMessage(text, type) {
   const msg = document.getElementById('msg');
-  msg.textContent = text;
-  msg.className = `msg ${type}`;
-  
-  msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (msg) {
+    msg.textContent = text;
+    msg.className = `msg ${type}`;
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }

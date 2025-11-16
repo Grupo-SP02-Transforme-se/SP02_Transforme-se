@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         localStorage.setItem('usuarioLogado', email);
-        window.location.href = '../home.html';
+        window.location.href = "../home/home.html";
       }, 1000);
     } else {
       showError('Usuário ou senha inválidos.');
@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeGoogleAuth();
 });
 
-// Função para inicializar o Google Auth de forma segura
 function initializeGoogleAuth() {
   if (typeof google === 'undefined') {
     console.log('Aguardando biblioteca do Google...');
@@ -118,11 +117,17 @@ function handleCredentialResponse(response) {
     const user = parseJwt(response.credential);
     console.log("User Info:", user);
     
-    localStorage.setItem('usuarioLogado', user.email);
+    localStorage.setItem('usuarioLogado', JSON.stringify({
+      email: user.email,
+      nome: user.name,
+      picture: user.picture
+    }));
+    
     localStorage.setItem('userName', user.name);
     localStorage.setItem('userPicture', user.picture);
     
-    window.location.href = "../home.html";
+    console.log('Redirecionando para /Home/home.html');
+    window.location.href = "../home/home.html";
     
   } catch (error) {
     console.error('Erro ao processar login do Google:', error);
