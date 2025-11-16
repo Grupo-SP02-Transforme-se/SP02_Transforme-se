@@ -1,9 +1,6 @@
 /* Reset e configurações básicas */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -65,8 +62,8 @@ body {
 .branding-side::before {
     content: "";
     position: absolute;
-    top: -50px;
-    right: -50px;
+    top: 50px;
+    right: 50px;
     width: 200px;
     height: 200px;
     background-color: var(--dourado);
@@ -78,7 +75,7 @@ body {
     content: "";
     position: absolute;
     bottom: -80px;
-    left: -80px;
+    left: 80px;
     width: 250px;
     height: 250px;
     background-color: var(--dourado);
@@ -92,7 +89,7 @@ body {
     gap: 15px;
     margin-bottom: 30px;
 }
-.logo img{
+.logo img {
     width: 100px;
 }
 .logo-icon {
@@ -197,23 +194,32 @@ body {
     color: var(--lilas-principal);
 }
 
-.form-control {
+.form-control,
+.input {
     width: 100%;
     padding: 15px 15px 15px 45px;
     border: 1px solid var(--borda);
     border-radius: 10px;
     font-size: 16px;
     transition: all 0.3s ease;
+    background-color: var(--branco) !important;
+    color: var(--texto) !important;
 }
 
-.form-control:focus {
+.form-control::placeholder,
+.input::placeholder {
+    color: var(--texto-claro);
+}
+
+.form-control:focus,
+.input:focus {
     outline: none;
     border-color: var(--lilas-principal);
-    box-shadow: 0 0 0 3px rgba(139, 95, 191, 0.1);
+    box-shadow: 0 0 0 0.125em rgba(139, 95, 191, 0.25);
+    background-color: var(--branco);
 }
 
 .password-toggle {
-    left: 400px;
     position: absolute;
     right: 15px;
     top: 50%;
@@ -306,15 +312,14 @@ body {
     font-weight: 500;
     color: var(--texto);
     width: 100%;
-}
-.btn-google img {
+  }
+  .btn-google img {
     width: 20px;
-}
-
-.btn-google:hover {
+  }
+  .btn-google:hover {
     background: var(--cinza-claro);
-}
-
+  }
+  
 .google-icon {
     color: #DB4437;
 }
