@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinUp - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="assets/favIcon.png" type="image/x-icon" />
+</head>
+
+<body>
+    <header class="level">
+        <div class="level-left">
+            <img src="assets/FinupLogo.png" alt="FinUp" width="120" />
+            <nav class="menu level-item ml-6 desktop-menu">
+                <a href="#" class="has-text-weight-bold" >Home</a>
+                <a href="#">Missões</a>
+                <a href="#">Carteira</a>
+                <a href="#">Materiais</a>
+                <a href="#">Ranking</a>
+                <a href="FAQ.html   ">Ajuda</a>
+            </nav>
+        </div>
+
+        <div class="level-right desktop-user">
+            <img src="assets/Raio.png" alt="Streak">
+            <img src="assets/Xp.png" class="level-item" alt="XP">
+            <img src="assets/notificacao.png" class="level-item" width="22" alt="Notificações" />
+            <div class="level-item">
+                <img src="assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
+                Nome de usuário
+            </div>
+        </div>
+
+        <div class="mobile-menu-toggle">
+            <button class="menu-button" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <img src="assets/FinupLogo.png" alt="FinUp" width="120" />
+                    <button class="close-button" aria-label="Fechar menu">×</button>
+                </div>
+
+                <nav class="mobile-nav">
+                    <a href="#"><i class="fas fa-home"></i>Home</a>
+                    <a href="#"><i class="fas fa-flag"></i>Missões</a>
+                    <a href="#"><i class="fas fa-wallet"></i>Carteira</a>
+                    <a href="#"><i class="fas fa-book"></i>Materiais</a>
+                    <a href="#"><i class="fas fa-trophy"></i>Ranking</a>
+                    <a href="#" class="has-text-weight-bold"><i class="fas fa-question-circle"></i>Ajuda</a>
+                </nav>
+
+                <div class="mobile-user-info">
+                    <div class="user-profile">
+                        <img src="assets/userLogo.svg" width="40" alt="Usuário" />
+                        <div class="user-details">
+                            <span class="user-name">Nome de usuário</span>
+                            <div class="user-stats">
+                                <div class="stat">
+                                    <img src="assets/Raio.png" alt="Streak" width="16">
+                                    <span>5 dias</span>
+                                </div>
+                                <div class="stat">
+                                    <img src="assets/Xp.png" alt="XP" width="16">
+                                    <span>1.250 XP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-notification">
+                        <img src="assets/notificacao.png" alt="Notificações" width="20">
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="welcome-banner">
+        <img src="assets/icone-cofrinho.png" alt="Cofrinho">
+        <div class="welcome-text">
+            <h2>Bem vindo de volta, Usuário!</h2>
+            <p>Você está em uma sequência de 15 dias de atividade! Continue se organizando financeiramente.</p>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>
+                <span class="highlight-purple">Construa sua </span>
+                <span class="highlight-yellow">liberdade financeira</span>
+                <span class="highlight-purple">, um orçamento de cada vez!</span>
+            </h1>
+            <p>
+                A liberdade não é um destino, mas uma jornada de escolhas conscientes.
+                Cada real economizado hoje é uma semente plantada para a sua tranquilidade de amanhã.
+                Comece a planejar seus gastos e garanta o controle do seu próprio futuro.
+            </p>
+        </div>
+        <div class="hero-image">
+            <img src="assets/hero-imagem.png" alt="Pessoa com cofrinho">
+        </div>
+    </section>
+
+    <section class="cards-section">
+        <h2 class="section-title">Complete suas missões diariamente</h2>
+
+        <div class="cards-grid">
+            <!-- CARD 1: Organização Financeira -->
+            <article class="card">
+                <img src="assets/organizacao-financeira.png" alt="Organização" class="card-image">
+
+                <h3 class="card-title">
+                    <span class="accent">Módulo 1:</span> Organização Financeira
+                </h3>
+
+                <!-- BOTÃO AQUI (entre título e barra) -->
+                <button class="button is-primary">Continue</button>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <p class="card-description">
+                    Continue estudando! Ter uma boa fonte de conhecimento é essencial,
+                    e não desista no meio do caminho.
+                </p>
+            </article>
+
+            <!-- CARD 2: Missões Diárias -->
+            <article class="card">
+                <img src="assets/missoes1.png" alt="Missões" class="card-image">
+
+                <div class="card-header">
+                    <img src="assets/target 1.png" alt="Alvo" class="card-icon">
+                    <h3 class="card-title">Complete suas missões diariamente</h3>
+                </div>
+
+                <!-- BOTÃO AQUI (entre título e barra) -->
+                <button class="button is-primary">Continue</button>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <p class="card-description">
+                    Manter suas missões em dia te ajuda a aprender e a ganhar mais XP.
+                </p>
+            </article>
+
+            <!-- CARD 3: Conquistas Recentes -->
+            <article class="card">
+                <img src="assets/Medalhas1.png" alt="Medalhas" class="card-image">
+
+                <h3 class="card-title">
+                    <span class="accent">Módulo 1:</span> Conquistas Recentes
+                </h3>
+
+                <!-- BOTÃO AQUI (entre título e barra) -->
+                <button class="button is-primary">Continue</button>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <p class="card-description">
+                    Continue suas tarefas para receber mais conquistas!
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <div class="parceiros has-text-centered">
+        <h1 class="title" id="titulo">Parceiros</h1>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+                <div class="image"><img src="assets/Serasa.png" alt="Logo Serasa"></div>
+            </div>
+            <div class="carousel-slide">
+                <div class="image"><img src="assets/Proa.png" alt="Logo PROA"></div>
+            </div>
+            <div class="carousel-slide">
+                <div class="image"><img src="assets/Proa.png" alt="Logo Proa"></div>
+            </div>
+            <div class="carousel-slide">
+                <div class="image"><img src="assets/Serasa.png" alt="Logo Serasa"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-waves">
+        <div class="wave layer-back"></div>
+        <div class="wave layer-front"></div>
+    </div>
+
+    <footer class="footer finup-footer">
+        <div class="container has-text-centered">
+            <figure class="image is-inline-block mb-3">
+                <img src="assets/FinupLogo.png" alt="FinUp Logo" style="max-width:160px;">
+            </figure>
+
+            <p class="has-text-white is-size-6 mb-4">Sua jornada para a liberdade<br>financeira começa aqui!</p>
+
+            <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
+                <a href="#" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
+                <a href="#" class="mx-2"><img src="assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
+                <a href="#" class="mx-2"><img src="assets/mdi_github.svg" alt="GitHub" width="24"></a>
+            </div>
+
+            <hr class="footer-line">
+
+            <p class="has-text-white is-size-7 mt-3">© 2025 FinUp. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu-overlay');
+        const closeButton = document.querySelector('.close-button');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            menuButton.classList.add('active');
+        });
+
+        closeButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuButton.classList.remove('active');
+        });
+
+        // Fechar menu ao clicar fora
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+                menuButton.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
