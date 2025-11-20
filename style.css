@@ -611,6 +611,82 @@
   }
 }
 
+.containerSobre{
+  background: var(--gradient-purple);
+  min-height: 60vh;
+  padding: 40px;
+  color: var(--cor-branca);
+}
+
+
+.feature-icon {
+  font-size: 22px;
+  margin-right: 12px;
+  color: var(--cor-botao);
+}
+
+.text-box {
+  max-width: 500px;
+}
+
+.image-Sobre img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.image-Sobre,
+.image-SobreUp,
+.image-SobreDown {
+  border-radius: 16px;
+  padding: 18px;
+  transition: transform .3s ease;
+}
+
+.image-Sobre img,
+.image-SobreUp img,
+.image-SobreDown img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Efeitos de altura */
+.image-SobreUp {
+  transform: translateY(-25px);
+}
+
+.image-SobreDown {
+  transform: translateY(25px);
+}
+.text-box h1, strong {
+  color: var(--textoDourado);
+
+}
+
+
+
+
+/* Se quiser animar o círculo também */
+.icon-circle {
+  transition: transform 0.25s ease;
+}
+
+.parceiro:hover .icon-circle {
+  transform: scale(1.08);
+}
+
+
 /* ========================================
    FOOTER E ONDAS
 ======================================== */
