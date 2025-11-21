@@ -1,0 +1,590 @@
+/* ==============================================
+   CSS Variables (Design Tokens)
+   ============================================== */
+:root {
+  /* Colors - Primary */
+  --color-primary: #36114e;
+  --color-primary-light: #b696bf;
+  --color-primary-dark: #67059e;
+  
+  /* Colors - Accent */
+  --color-accent: #f4c300;
+  --color-accent-gradient-start: #7d27b4;
+  --color-accent-gradient-end: #f946f0;
+  --color-accent-transparent: rgba(161, 67, 208, 0.25);
+  
+  /* Colors - Neutral */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-light: #e5e5e5;
+  --color-gray-medium: #5d5d5d;
+  --color-gray-avatar: #d9d9d9;
+  --color-gray-placeholder: rgba(182, 150, 191, 0.45);
+  
+  /* Colors - Status */
+  --color-gold: #ffcd29;
+  --color-silver: #b0b1b2;
+  --color-bronze: #ae7655;
+  
+  /* Typography */
+  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-secondary: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 19px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  
+  /* Border Radius */
+  --radius-xs: 2px;
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-full: 50%;
+  
+  /* Shadows */
+  --shadow-md: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* ==============================================
+   Reset & Base Styles
+   ============================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-white);
+  color: var(--color-black);
+  line-height: var(--line-height-normal);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+}
+
+a,
+button,
+input {
+  border: none;
+  background: none;
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==============================================
+   Friends Ranking Container
+   ============================================== */
+.friends-ranking {
+  width: 100%;
+  max-width: 915px;
+  height: 707px;
+  position: relative;
+}
+
+/* ==============================================
+   Ranking Tabs
+   ============================================== */
+.friends-ranking__tabs {
+  width: 463px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.tabs__list {
+  display: flex;
+  align-items: stretch;
+}
+
+.tabs__item {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.tabs__item:not(:first-child) {
+  margin-left: -1px;
+}
+
+.tabs__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-white);
+  border: 1px solid var(--color-accent-gradient-end);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tabs__item--active .tabs__link {
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-sm) 0 0 0;
+  mix-blend-mode: darken;
+}
+
+.tabs__item:not(.tabs__item--active) .tabs__link {
+  mix-blend-mode: darken;
+}
+
+.tabs__link:hover:not(.tabs__item--active .tabs__link) {
+  background: rgba(249, 70, 240, 0.1);
+}
+
+/* ==============================================
+   Main Content
+   ============================================== */
+.friends-ranking__content {
+  background: var(--color-white);
+  border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+  width: 100%;
+  height: 647px;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 235px;
+  grid-template-rows: auto 1fr;
+}
+
+/* ==============================================
+   Header
+   ============================================== */
+.friends-ranking__header {
+  grid-column: 1;
+  grid-row: 1;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.friends-ranking__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-align: center;
+  line-height: var(--line-height-tight);
+}
+
+.friends-ranking__add-button {
+  position: absolute;
+  right: var(--spacing-xl);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  transition: opacity var(--transition-fast);
+}
+
+.friends-ranking__add-button:hover {
+  opacity: 0.8;
+}
+
+.add-button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.add-button__text {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-black);
+  line-height: 27px;
+}
+
+/* ==============================================
+   Friends List
+   ============================================== */
+.friends-list {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 0 var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  overflow-y: auto;
+}
+
+/* Friend Item */
+.friend-item {
+  background: var(--color-primary-light);
+  border: 3px solid var(--color-primary-dark);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  min-height: 89px;
+  display: grid;
+  grid-template-columns: 55px 53px 1fr auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.friend-item:hover {
+  transform: translateX(4px);
+}
+
+.friend-item__medal {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  left: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.friend-item__position {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  text-align: center;
+  line-height: var(--line-height-tight);
+  z-index: 1;
+}
+
+/* Position Colors */
+.friend-item--rank-1 .friend-item__position {
+  -webkit-text-stroke: 1px var(--color-gold);
+}
+
+.friend-item--rank-2 .friend-item__position {
+  -webkit-text-stroke: 1px var(--color-silver);
+}
+
+.friend-item--rank-3 .friend-item__position {
+  -webkit-text-stroke: 1px var(--color-bronze);
+}
+
+.friend-item:not([class*="--rank-"]) .friend-item__position {
+  -webkit-text-stroke: 0.5px var(--color-primary);
+}
+
+/* Avatar */
+.friend-item__avatar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friend-item__avatar {
+  width: 53px;
+  height: 53px;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-avatar);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--spacing-xs);
+}
+
+.friend-item__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Name */
+.friend-item__name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-black);
+  line-height: var(--line-height-tight);
+}
+
+/* XP Display */
+.friend-item__xp {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  justify-self: end;
+}
+
+.friend-item__xp-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.friend-item__xp-value {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-black);
+  line-height: var(--line-height-tight);
+  white-space: nowrap;
+}
+
+/* Current User Highlight */
+.friend-item--current-user {
+  box-shadow: var(--shadow-md);
+}
+
+/* ==============================================
+   Sidebar
+   ============================================== */
+.friends-sidebar {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl);
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.friends-sidebar__search {
+  background: var(--color-primary-light);
+  border: 3px solid var(--color-primary-dark);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+}
+
+.friends-sidebar__search-button {
+  flex: 1;
+  background: var(--color-accent-transparent);
+  border-radius: var(--radius-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: var(--shadow-md);
+  transition: background var(--transition-fast);
+}
+
+.friends-sidebar__search-button:hover {
+  background: rgba(161, 67, 208, 0.35);
+}
+
+.search-button__placeholder {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-gray-placeholder);
+  line-height: var(--line-height-tight);
+}
+
+.friends-sidebar__settings {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.friends-sidebar__settings:hover {
+  opacity: 0.7;
+}
+
+.friends-sidebar__settings img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==============================================
+   Scrollbar Styling
+   ============================================== */
+.friends-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.friends-list::-webkit-scrollbar-track {
+  background: var(--color-gray-light);
+  border-radius: 4px;
+}
+
+.friends-list::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+.friends-list::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ==============================================
+   Responsive Design
+   ============================================== */
+@media (max-width: 1024px) {
+  .friends-ranking__content {
+    grid-template-columns: 1fr;
+  }
+  
+  .friends-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .friends-ranking {
+    height: auto;
+  }
+  
+  .friends-ranking__content {
+    position: static;
+    height: auto;
+    min-height: 600px;
+  }
+  
+  .friends-ranking__tabs {
+    position: static;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .tabs__link {
+    font-size: var(--font-size-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  
+  .friends-ranking__add-button {
+    position: static;
+    transform: none;
+    margin-top: var(--spacing-sm);
+  }
+  
+  .friends-ranking__header {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .friend-item {
+    grid-template-columns: 40px 40px 1fr;
+    grid-template-rows: auto auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .friend-item__medal {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .friend-item__position {
+    font-size: var(--font-size-xl);
+  }
+  
+  .friend-item__avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .friend-item__xp {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: var(--spacing-sm);
+  }
+  
+  .tabs__link {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-xs);
+  }
+  
+  .add-button__text {
+    font-size: var(--font-size-base);
+  }
+  
+  .friend-item__name {
+    font-size: var(--font-size-base);
+  }
+  
+  .friend-item__xp-value {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ==============================================
+   Accessibility
+   ============================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Focus States */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .friend-item {
+    border-width: 4px;
+  }
+  
+  .tabs__link {
+    border-width: 2px;
+  }
+}
