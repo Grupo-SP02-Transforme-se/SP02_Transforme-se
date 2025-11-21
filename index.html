@@ -450,73 +450,29 @@
         <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
             <a href="https://www.instagram.com/finup.projeto/" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
             <a href="https://www.linkedin.com/in/finup-up-240a81398/" target="_blank" class="mx-2"><img src="assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
-            <a href="" class="mx-2"><img src="assets//mdi_github.svg" alt="GitHub" width="24"></a>
+            <a href="https://github.com/Grupo-SP02-Transforme-se" class="mx-2"><img src="assets//mdi_github.svg" alt="GitHub" width="24"></a>
         </div>
 
         <hr class="footer-line">
         <p class="has-text-white is-size-7 mt-3">© 2025 FinUp. Todos os direitos reservados.</p>
     </div>
+
+    <!-- VLibras Widget -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
 </footer>
 
-<script>
-// Menu toggle para mobile
-document.addEventListener('DOMContentLoaded', () => {
-  // Toggle do menu mobile
-  const navbarBurger = document.querySelector('.navbar-burger');
-  const navbarMenu = document.querySelector('.navbar-menu');
-  
-  if (navbarBurger && navbarMenu) {
-    navbarBurger.addEventListener('click', () => {
-      navbarBurger.classList.toggle('is-active');
-      navbarMenu.classList.toggle('is-active');
-    });
-  }
-
-  // Rolagem suave para todos os links internos
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      
-      // Verificar se é um link interno (começa com #)
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          // Calcular a posição considerando a altura da navbar
-          const navbarHeight = document.querySelector('.navbar').offsetHeight;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-          
-          // Fechar menu mobile se estiver aberto
-          if (navbarBurger && navbarBurger.classList.contains('is-active')) {
-            navbarBurger.classList.remove('is-active');
-            navbarMenu.classList.remove('is-active');
-          }
-          
-          // Fechar dropdown se estiver aberto
-          const dropdown = this.closest('.navbar-dropdown');
-          if (dropdown) {
-            const dropdownParent = dropdown.closest('.navbar-item.has-dropdown');
-            if (dropdownParent) {
-              dropdownParent.classList.remove('is-active');
-            }
-          }
-          
-          // Rolagem suave
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
-      // Links externos (que não começam com #) seguem normalmente
-    });
-  });
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

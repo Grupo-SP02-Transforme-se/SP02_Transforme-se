@@ -509,7 +509,7 @@ header {
 }
 
 .layer-back {
-  background-image: url("/assets/OndaRoxa.png");
+  background-image: url("../assets/OndaRoxa.png");
   animation: moveBack 20s linear infinite;
   opacity: .9;
 }
