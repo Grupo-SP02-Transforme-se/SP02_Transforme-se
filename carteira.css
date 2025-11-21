@@ -1,0 +1,690 @@
+:root {
+    --cor-fundo: #e9e9e9;
+    --cor-header: #fffeec;
+    --cor-card: #b696bf;
+    --cor-texto: #222;
+    --cor-branca: #fff;
+    --cor-botao: #d1a2e7;
+    --cor-botao-hover: #d386f6;
+    --cor-Texto-BTN: #67059e;
+    --cor-purple-dark: #36114e;
+    --cor-purple-footer: #3b185f;
+    --gradient-purple: linear-gradient(90deg, #7e2eab 0%, #b868df 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    min-height: 100vh;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+header {
+    width: 100%;
+    background: var(--cor-header);
+    padding: 12px 25px;
+    color: var(--cor-texto);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu a {
+    color: var(--cor-texto);
+    margin-right: 18px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-botao-hover);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.menu a.has-text-weight-bold::after {
+    width: 100%;
+    background-color: var(--cor-purple-dark);
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* ========================================
+   BANNER
+======================================== */
+.welcome-banner {
+    background: var(--cor-purple-dark);
+    color: var(--cor-branca);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.welcome-banner img {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.welcome-text h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.welcome-text p {
+    font-size: 12px;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+main {
+    background: var(--gradient-purple);
+    padding: 24px 40px;
+    gap: 15px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   FILTROS
+======================================== */
+.filters-section {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.period-buttons {
+    display: flex;
+    gap: 0;
+    background: var(--cor-branca);
+    border-radius: 8px;
+    border: 1px solid #eceff2;
+    overflow: hidden;
+}
+
+.period-btn {
+    background: var(--cor-branca);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #516778;
+    transition: 0.2s;
+    border-right: 1px solid #eceff2;
+}
+
+.period-selector {
+    background: #ffffff;
+    border-radius: var(--radius-md, 8px);
+    border-style: solid;
+    border-color: var(--gray-100, #eceff2);
+    border-width: 1px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.period-btn:last-child,
+.period-selector:last-child {
+    border-right: none;
+}
+
+.period-btn.active,
+.period-selector.active {
+    background: #e5b5ff;
+    color: var(--cor-Texto-BTN);
+}
+
+.period-btn:hover,
+.period-selector:hover {
+    background: #f5f5f5;
+}
+
+/* ========================================
+   CARDS DE RESUMO
+======================================== */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card-summary {
+    background: var(--cor-branca);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.balance-card {
+    border: 2px solid var(--cor-purple-dark);
+}
+
+.income-card {
+    border: 2px solid #668091;
+}
+
+.expense-card {
+    border: 2px solid #b0bfc9;
+}
+
+.card-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333e47;
+}
+
+.card-amount {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--cor-purple-dark);
+}
+
+.card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    width: fit-content;
+    border: 1px solid #d5dde2;
+}
+
+.card-badge.positive {
+    color: #17b26a;
+}
+
+.card-badge.negative {
+    color: #f04438;
+}
+
+/* ========================================
+   AÇÕES RÁPIDAS
+======================================== */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.action-btn {
+    background: var(--cor-branca);
+    border: 1px solid #eceff2;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.action-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.income-icon {
+    background: #dcfae6;
+    color: #17b26a;
+}
+
+.expense-icon {
+    background: #fee4e2;
+    color: #f04438;
+}
+
+.transfer-icon {
+    background: #f9fafb;
+    color: #516778;
+}
+
+.action-text {
+    flex: 1;
+}
+
+.action-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333e47;
+    margin-bottom: 2px;
+}
+
+.action-subtitle {
+    font-size: 14px;
+    color: #516778;
+}
+
+/* ========================================
+   GRÁFICO E TRANSAÇÕES
+======================================== */
+.charts-section {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.chart-card,
+.transactions-card {
+    background: var(--cor-branca);
+    border-radius: 12px;
+    border: 1px solid #eceff2;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333e47;
+    margin-bottom: 20px;
+}
+
+#pieChart {
+    max-width: 240px;
+    max-height: 240px;
+    margin: 0 auto 20px auto;
+}
+
+.legend-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 8px;
+    border-bottom: 1px solid #eceff2;
+}
+
+.legend-color {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.legend-color i {
+    color: white;
+    font-size: 14px;
+}
+
+.legend-label {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 700;
+    color: #101828;
+}
+
+.legend-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #668091;
+}
+
+.transactions-header {
+    margin-bottom: 20px;
+}
+
+.transactions-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #101828;
+    margin-bottom: 4px;
+}
+
+.transactions-subtitle {
+    font-size: 14px;
+    color: #516778;
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid #eceff2;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: grid;
+    grid-template-columns: 1fr 150px 120px 150px 40px;
+    gap: 12px;
+    padding: 12px 24px;
+    border-bottom: 1px solid #eceff2;
+    align-items: center;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-desc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.transaction-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    color: #668091;
+    flex-shrink: 0;
+}
+
+.transaction-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #101828;
+}
+
+.transaction-category,
+.transaction-date {
+    font-size: 14px;
+    font-weight: 700;
+    color: #516778;
+}
+
+.transaction-amount {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.transaction-amount.positive {
+    color: #17b26a;
+}
+
+.transaction-amount.negative {
+    color: #101828;
+}
+
+.transaction-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f04438;
+    font-size: 16px;
+    padding: 4px;
+    transition: 0.2s;
+}
+
+.transaction-delete:hover {
+    transform: scale(1.2);
+}
+
+.empty-message {
+    padding: 40px 20px;
+    text-align: center;
+    color: #516778;
+    font-size: 14px;
+}
+
+/* ========================================
+   MODAL
+======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-card {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-card-head {
+    background: var(--cor-purple-dark);
+    color: white;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.modal-card-body {
+    padding: 20px;
+}
+
+.modal-card-foot {
+    padding: 20px;
+    border-top: 1px solid #eceff2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.parallax-waves {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #4d2c62;
+    margin-top: 60px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.layer-back {
+    background-image: url("assets/OndaRoxa.png");
+    animation: moveBack 20s linear infinite;
+    opacity: 0.9;
+}
+
+.layer-front {
+    background-image: url("assets/OndaRoxa.png");
+    animation: moveFront 25s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes moveBack {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes moveFront {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-60%);
+    }
+}
+
+.finup-footer {
+    background-color: var(--cor-purple-footer);
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+.footer-line {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 70%;
+    margin: 20px auto;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+@media (max-width: 1024px) {
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+
+    .transaction-item {
+        grid-template-columns: 1fr 100px 80px;
+        font-size: 13px;
+    }
+
+    .transaction-category {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-banner {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .summary-cards,
+    .quick-actions {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .period-buttons {
+        flex-wrap: wrap;
+    }
+
+    .period-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .transaction-item {
+        grid-template-columns: 1fr 80px;
+    }
+
+    .transaction-date {
+        display: none;
+    }
+
+    .desktop-menu,
+    .desktop-user {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
