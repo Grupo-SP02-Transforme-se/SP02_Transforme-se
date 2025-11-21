@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="contato.css">
+    <link rel="shortcut icon" href="/assets/Logo da FinUp_ Educação Financeira.png" type="image/x-icon">
+    <title>Contato</title>
+</head>
+<body>
+<nav class="navbar is-white shadow">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img src="/assets/FinupLogo.png" alt="FinUp" style="max-height: 60px;">
+            </a>
+
+            <!-- BOTÃO DROPDOWN MOBILE -->
+            <a role="button" class="navbar-burger" data-target="menu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="menu" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="/index.html" class="navbar-item">Início</a>
+                <a href="contato/contato.html" class="navbar-item">Contato</a>
+
+                <!-- DROPDOWN -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a href="/cadastro/cadastro.html" class="button is-light">Cadastrar-se</a>
+                </div>
+                <div class="navbar-item">
+                    <a href="/login/login.html" class="button is-primary">Entrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- SEÇÃO DE CONTATO -->
+  <div class="contact-section">
+    <!-- Lado Esquerdo - Título + Imagem -->
+    <div class="contact-left">
+      <h1 class="title" id="titulo">Fale Conosco</h1>
+      <img src="/assets/faleConosco.svg" alt="Ilustração de contato" class="contact-image">
+    </div>
+
+    <!-- Lado Direito - Formulário -->
+    <div class="contact-wrapper">
+      <div class="contact-card">
+        <form id="contactForm">
+          <div class="field">
+            <label class="label">Nome</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Digite seu nome" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">E-mail</label>
+            <div class="control">
+              <input class="input" type="email" placeholder="Digite seu e-mail" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Assunto</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Assunto da mensagem" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Mensagem</label>
+            <div class="control">
+              <textarea class="textarea" placeholder="Descreva sua dúvida..." required></textarea>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <button class="button is-primary is-medium" type="submit" id="submitBtn">Enviar mensagem</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARCEIROS -->
+  <div class="parceiros has-text-centered">
+    <h1 class="title" id="titulo">Parceiros</h1>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <div class="image"><img src="/assets/Serasa.png" alt="Logo Serasa"></div>
+      </div>
+      <div class="carousel-slide">
+        <div class="image"><img src="/assets/Proa.png" alt="Logo PROA"></div>
+      </div>
+      <div class="carousel-slide">
+        <div class="image"><img src="/assets/Proa.png" alt="Logo Proa"></div>
+      </div>
+      <div class="carousel-slide">
+        <div class="image"><img src="/assets/Serasa.png" alt="Logo Serasa"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax-waves">
+    <div class="wave layer-back"></div>
+    <div class="wave layer-front"></div>
+  </div>
+
+  <footer class="footer finup-footer">
+    <div class="container has-text-centered">
+      <figure class="image is-inline-block mb-3">
+        <img src="/assets/FinupLogo.png" alt="FinUp Logo" style="max-width:160px;">
+      </figure>
+
+      <p class="has-text-white is-size-6 mb-4">Sua jornada para a liberdade<br>financeira começa aqui!</p>
+
+      <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
+        <a href="https://www.instagram.com/finup.projeto/" class="mx-2"><img src="/assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
+        <a href="https://www.linkedin.com/in/finup-up-240a81398/" target="_blank" class="mx-2"><img src="/assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
+        <a href="https://github.com/Grupo-SP02-Transforme-se" class="mx-2"><img src="/assets/mdi_github.svg" alt="GitHub" width="24"></a>
+      </div>
+
+      <hr class="footer-line">
+
+      <p class="has-text-white is-size-7 mt-3">© 2025 FinUp. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="contato.js"></script>
+</body>
+</html>

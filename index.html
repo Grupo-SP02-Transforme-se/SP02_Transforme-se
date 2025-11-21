@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css"/>
   <link rel="shortcut icon" href="assets/Logo da FinUp_ Educação Financeira.png" type="image/x-icon">
+  <style>
+    /* Estilos para melhorar a experiência de rolagem suave */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Garantir que os elementos alvo tenham posicionamento adequado */
+    [id] {
+      scroll-margin-top: 80px; /* Aproximadamente a altura da navbar */
+    }
+  </style>
 </head>
 <body>
 
@@ -19,32 +30,35 @@
           <img src="assets/FinupLogo.png" alt="FinUp" style="max-height: 60px;">
         </a>
 
-        <a role="button" class="navbar-burger" data-target="menu" aria-label="menu" aria-expanded="false">
-          <span></span><span></span><span></span>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div id="menu" class="navbar-menu">
+      <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">Painel</a>
+          <a class="navbar-item" href="#">Inicio</a>
 
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Sobre</a>
             <div class="navbar-dropdown">
-              <a class="navbar-item">Quem somos</a>
-              <a class="navbar-item">Funcionalidade</a>
-              <a class="navbar-item">Missão</a>
+              <a href="#apresentacao" class="navbar-item">Quem somos</a>
+              <a href="#comoFazemos" class="navbar-item">Como fazemos</a>
+              <a href="#OrgFinanceiro" class="navbar-item">Organizador financeiro</a>
+              <a href="#Assinaturas" class="navbar-item">Assinaturas</a>
             </div>
           </div>
-          <a class="navbar-item">Contato</a>
+          <a href="contato/contato.html" class="navbar-item">Contato</a>
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item">
-            <a class="button is-light">Cadastrar-se</a>
+            <a href="cadastro/cadastro.html" class="button is-light">Cadastrar-se</a>
           </div>
           <div class="navbar-item">
-            <a class="button is-primary">Entrar</a>
+            <a href="Login/login.html" class="button is-primary">Entrar</a>
           </div>
         </div>
       </div>
@@ -67,7 +81,7 @@
 
         <div class="column is-6">
           <div class="image-card">
-            <img src="assets/ImgLanding.svg" alt="Estudante" />
+          <img src="assets/ImgLanding.svg" alt="Estudante" />
           </div>
         </div>
 
@@ -77,7 +91,7 @@
       <div class="has-text-centered mt-5">
         <button class="arrow-circle">
           <img src="assets/SetaIndex.svg" alt="Seta">
-        </span>
+        </button>
       </div>
 
     </div>
@@ -109,13 +123,13 @@
   
         <!-- TEXTO -->
         <div class="column is-7">
-          <p class="sobre-text">
+          <p class="sobre-text subtitle is-4" >
             Na <strong>FinUp</strong>, acreditamos que o cuidado com as finanças é transformador.
             Nosso objetivo principal é apoiar indivíduos de baixa renda e aqueles em situação de inadimplência,
             capacitando-os e reorganizando sua vida financeira.
           </p>
   
-          <p class="sobre-text mt-4">
+          <p class="sobre-text subtitle is-4">
             Para isso, oferecemos uma plataforma completa com conteúdos educativos de alto valor,
             suporte dedicado e aprendizado contínuo.
           </p>
@@ -198,12 +212,12 @@
   <!-- SEÇÃO COMO FAZEMOS -->
       <div class="divider-left"></div>
     
-    <div class="fazemos-container">
+    <div class="fazemos-container" id="comoFazemos">
         <h1 class="fazemos-title">Como fazemos</h1>
         <p class="subtitle">Temos duas principais formas de ensino</p>
 
         <div class="content-section">
-            <div class="image-card">
+            <div class="image-cardFazemos">
                <div class="image-placeholder"></div>
             </div>
 
@@ -255,14 +269,17 @@
   
         <!-- 📄 COLUNA DIREITA (Texto) -->
         <div class="column is-half">
-          <div class="text-box">
+          <div class="text-box" id="OrgFinanceiro">
+            
             <h1 class="title has-text">Organizador financeiro</h1>
   
             <!-- Item 1 -->
             <div class="mb-5">
-              <p class="is-size-5">
-                <i class="fa-solid fa-flask feature-icon"></i>
-                <strong class>Simulador de Investimentos</strong>
+                     <button class="favicon-circle">
+                       <p class="is-size-5">
+                       <i class="fa-solid fa-calendar feature-icon"></i>
+                  </button>
+                    <strong class>Simulador de Investimentos</strong>
               </p>
               <p>
                 Ele funciona como um laboratório seguro, onde você pode inserir dados sobre o que pretende investir e a ferramenta calcula uma estimativa do quanto seu dinheiro poderá render ao longo do tempo.
@@ -271,8 +288,10 @@
   
             <!-- Item 2 -->
             <div class="mb-5">
+               <button class="favicon-circle">
               <p class="is-size-5">
-                <i class="fa-solid fa-tags feature-icon"></i>
+                <i class="fa-solid fa-credit-card card-icon"></i>
+               </button>
                 <strong>Categorizador de Gastos</strong>
               </p>
               <p>
@@ -282,8 +301,10 @@
   
             <!-- Item 3 -->
             <div class="mb-5">
-              <p class="is-size-5">
-                <i class="fa-solid fa-calendar feature-icon"></i>
+               <button class="favicon-circle">
+                <p class="is-size-5">
+                <i class="fa-solid fa-chart-pie feature-icon"></i>
+                </button>
                 <strong>Orçamentos Mensais</strong>
               </p>
               <p>
@@ -338,20 +359,22 @@
           <div class="parceiro-subtitle">(Saúde Financeira<br>B2B)</div>
       </div>
   </div>
-  <div class="header">
+  <div class="assinaturas-section" id="Assinaturas">
     <h1>Assinatura simples e prática</h1>
     <p>Preços desenhados para a realidade das classes C e D, com forte percepção de valor no plano Plus.</p>
 </div>
 
 <div class="plans-grid">
-    <!-- Plano Free -->
-    <div class="plan-card">
+
+    <div class="plan-card free">
         <div class="plan-header">
-            <div class="plan-name">FinUp<span class="plan-name-small">Free</span></div>
+            <h3 class="plan-name">FinUp<span>Free</span></h3>
         </div>
-        <div class="plan-price">R$ 0</div>
-        <div class="plan-subtitle">Acesso básico</div>
+
+        <p class="plan-price">R$ 0</p>
+
         <ul class="plan-features">
+            <li>Acesso básico</li>
             <li>Trilha "Primeiros Passos"</li>
             <li>1 simulador básico</li>
             <li>Com anúncios</li>
@@ -359,36 +382,36 @@
         </ul>
     </div>
 
-    <!-- Plano Plus -->
-    <div class="plan-card gradient-purple">
+    <div class="plan-card plus">
         <div class="plan-header">
-            <div class="plan-name">FinUp<br><span class="plan-name-small">Plus</span></div>
-            <div class="popular-badge">Mais<br>popular</div>
+            <h3 class="plan-name">FinUp<span>Plus</span></h3>
+            <div class="popular-badge">Mais popular</div>
         </div>
-        <div class="plan-price">R$ 9,90 <span class="plan-price-small">/mês</span></div>
-        <div class="plan-subtitle">Solução completa</div>
+
+        <p class="plan-price">R$ 9,90 <span class="plan-price-small">/ mês</span></p>
+
         <ul class="plan-features">
-            <li>Todos Simuladores</li>
+            <li>Todos simuladores</li>
             <li>Missões ilimitadas</li>
             <li>Vidas extras</li>
-            <li>Sem anúncios</li>
+            <li>Sem anúncio</li>
         </ul>
     </div>
 
-    <!-- Plano Pro -->
-    <div class="plan-card plan-pro">
+    <div class="plan-card pro">
         <div class="plan-header">
-            <div class="plan-name">FinUp<span class="plan-name-small">Pro</span></div>
+            <h3 class="plan-name">FinUp<span>Pro</span></h3>
         </div>
-        <div class="plan-price">R$ 19,90<span class="plan-price-small">/mês</span></div>
-        <div class="plan-subtitle">Tudo do Plus + Mentoria</div>
+
+        <p class="plan-price">R$ 19,90 <span class="plan-price-small">/ mês</span></p>
+
         <ul class="plan-features">
             <li>Tudo do Plus</li>
             <li>Mentorias em grupo</li>
             <li>Desconto de parceiro</li>
         </ul>
     </div>
-</div>
+
 </div>
 <div class="parceiros has-text-centered">
     <h1 class="title" id="titulo">Parceiros</h1>
@@ -425,14 +448,75 @@
         <p class="has-text-white is-size-6 mb-4">Sua jornada para a liberdade<br>financeira começa aqui!</p>
 
         <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
-            <a href="#" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
+            <a href="https://www.instagram.com/finup.projeto/" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
             <a href="https://www.linkedin.com/in/finup-up-240a81398/" target="_blank" class="mx-2"><img src="assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
-            <a href="#" class="mx-2"><img src="assets//mdi_github.svg" alt="GitHub" width="24"></a>
+            <a href="" class="mx-2"><img src="assets//mdi_github.svg" alt="GitHub" width="24"></a>
         </div>
 
         <hr class="footer-line">
         <p class="has-text-white is-size-7 mt-3">© 2025 FinUp. Todos os direitos reservados.</p>
     </div>
 </footer>
+
+<script>
+// Menu toggle para mobile
+document.addEventListener('DOMContentLoaded', () => {
+  // Toggle do menu mobile
+  const navbarBurger = document.querySelector('.navbar-burger');
+  const navbarMenu = document.querySelector('.navbar-menu');
+  
+  if (navbarBurger && navbarMenu) {
+    navbarBurger.addEventListener('click', () => {
+      navbarBurger.classList.toggle('is-active');
+      navbarMenu.classList.toggle('is-active');
+    });
+  }
+
+  // Rolagem suave para todos os links internos
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      // Verificar se é um link interno (começa com #)
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          // Calcular a posição considerando a altura da navbar
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+          
+          // Fechar menu mobile se estiver aberto
+          if (navbarBurger && navbarBurger.classList.contains('is-active')) {
+            navbarBurger.classList.remove('is-active');
+            navbarMenu.classList.remove('is-active');
+          }
+          
+          // Fechar dropdown se estiver aberto
+          const dropdown = this.closest('.navbar-dropdown');
+          if (dropdown) {
+            const dropdownParent = dropdown.closest('.navbar-item.has-dropdown');
+            if (dropdownParent) {
+              dropdownParent.classList.remove('is-active');
+            }
+          }
+          
+          // Rolagem suave
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+      // Links externos (que não começam com #) seguem normalmente
+    });
+  });
+});
+</script>
+
 </body>
 </html>
