@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+    --cor-fundo: #e9e9e9;
+    --cor-header: #fffeec;
+    --cor-card: #b696bf;
+    --cor-texto: #222;
+    --cor-branca: #fff;
+    --cor-botao: #d1a2e7;
+    --cor-botao-hover: #d386f6;
+    --cor-Texto-BTN: #67059E;
+    --cor-purple-dark: #36114e;
+    --cor-purple-footer: #3b185f;
+    --cor-yellow: #f4c300;
+    --gradient-purple: linear-gradient(180deg, #f946f0 0%, #b868df 76.93%);
+    --gradient-title: linear-gradient(to right, #8a2be2, #ff69b4);
+    --Pink: #F946F0;
+
+    /* 🌙 VARIÁVEIS DARK MODE */
+    --cor-fundoDark: #1e132b;
+    --cor-cardDark: #2a1b3f;
+    --cor-textoDark: #f2e9ff;
+    --cor-headerDark: #2f1f47;
+}
+
+/* ========================================
+   RESET BÁSICO
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.menu a {
+    color: var(--cor-texto);
+    margin-right: 18px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: .3s ease;
+    text-decoration: none;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--cor-botao-hover);
+    transition: width .3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.menu a:hover {
+    color: var(--cor-botao-hover);
+}
+
+.menu a.has-text-weight-bold::after {
+    background-color: var(--cor-card);
+}
+
+/* MENU MOBILE */
+.mobile-menu-toggle {
+    display: none;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-texto);
+    transition: .3s ease;
+    border-radius: 2px;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85%;
+    max-width: 400px;
+    height: 100%;
+    background: var(--cor-header);
+    transform: translateX(100%);
+    transition: .3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu-overlay.active .mobile-menu-content {
+    transform: translateX(0);
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--cor-texto);
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-nav a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    color: var(--cor-texto);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: .3s ease;
+    font-size: 1.1rem;
+}
+
+.mobile-nav a:hover {
+    background: rgba(77, 44, 98, 0.1);
+    color: var(--cor-botao-hover);
+}
+
+.mobile-nav a i {
+    width: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.mobile-user-info {
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    background: rgba(255, 255, 255, .5);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--cor-texto);
+}
+
+.user-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .9rem;
+    color: #666;
+}
+
+.mobile-notification {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(77, 44, 98, 0.1);
+    border-radius: 20px;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.15);
+}
+
+/* Caixa do módulo */
+.modulo-box {
+    background: var(--cor-purple-dark);
+    padding: 1.5rem 3rem 2rem 3rem;
+    border-radius: 16px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Botão rosa A Grande Virada */
+.grande-virada {
+    background: var(--Pink) !important;
+    font-weight: bold;
+    padding: 0.75rem 2rem !important;
+    font-size: 1rem !important;
+    height: auto !important;
+    position: absolute;
+    bottom: 0;
+    width: 400px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    border: none;
+    border-radius: 25px;
+}
+
+
+/* Paragrafo da conquista */
+
+#conquista {
+    display: flex;
+    font-size: 2rem;
+    color: var(--cor-texto);
+    margin-top: 120px !important;
+    justify-content: center;
+    display: flex;
+    /* ou flex, grid */
+    width: 100%;
+}
+
+/* Bloco roxo principal */
+/* Container principal */
+.bloco-principal {
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Para arredondar a faixa superior */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Faixa roxa escura do título */
+.bloco-principal .titulo-faixa {
+    background-color: #3c1a5b;
+    /* Roxo bem escuro igual ao print */
+    padding: 12px 0;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Área lilás clara */
+.bloco-principal .conteudo {
+    background-color: #c7a7c9;
+    /* Lilás claro igual ao print */
+    padding: 25px 15px;
+}
+
+/* "Objetivo da Lição" */
+.objetivo-sub {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+/* Texto explicativo */
+.objetivo-text {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+}
+
+#h3Teorico {
+    margin-top: 80px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* Conteúdo teórico */
+.conteudo-box {
+    max-width: 750px;
+    margin: 0 auto;
+    background: var(--cor-cardDark);
+    color: var(--cor-branca);
+    border-radius: 12px;
+    padding: 1.8rem;
+    font-size: 1.5rem;
+    border-left: 6px solid var(--cor-texto);
+}
+
+#conhecerForca {
+    margin-top: 200px !important;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--cor-purple-dark);
+}
+
+#instrucoes {
+    margin-top: 120px !important;
+    font-size: 1.2rem;
+}
+
+/* Sessão geral */
+.video-section {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+/* Card do vídeo */
+.video-card {
+    display: inline-block;
+    border: 3px solid #ffce47;
+    border-radius: 12px;
+    padding: 0.5rem;
+    background: white;
+    width: 50%;
+}
+
+.video-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Botão roxo Vamos Praticar */
+
+.botao-praticar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    background: #4a1f6c;
+    color: white;
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px #2d1342;
+    border: none;
+}
+
+.botao-praticar:hover {
+    background: var(--cor-botao-hover);
+    color: var(--cor-texto);
+}
+
+/* Texto das instruções */
+.instrucoes {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+}
+
+
+.simulador-section {
+    background: var(--cor-fundo);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.instrucoes-topo {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.3rem;
+}
+
+.simulador-card {
+    max-width: 650px;
+    margin: 0 auto;
+    border-radius: 14px;
+    padding: 2.5rem;
+}
+
+.simulador-label {
+    font-weight: 600;
+}
+
+.botao-simular {
+    background: var(--cor-cardDark);
+    color: var(--cor-branca);
+    font-size: 1.1rem;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px #2d1342;
+    border: none;
+}
+
+.botao-simular:hover {
+    background: var(--cor-botao-hover);
+    color: var(--cor-texto);
+}
+
+.resultado-box {
+    border: 1px solid #d2d2d2;
+    background: #fafafa;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.alerta {
+    margin-top: 1rem;
+    color: #c92a2a;
+    font-weight: bold;
+}
+
+
+.partners-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+
+.partners-title {
+    background: var(--gradient-title) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 160px !important;
+    display: inline-block;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    animation: slide 20s linear infinite;
+}
+
+.carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50%;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.carousel-slide img {
+    max-height: 150px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: .3s ease;
+}
+
+.carousel-slide img:hover {
+    transform: scale(1.05);
+}
+
+#titulo {
+    color: var(--cor-purple-dark);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.parallax-waves {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #4d2c62;
+    margin-top: 60px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.layer-back {
+    background-image: url("../assets/OndaRoxa.png");
+    animation: moveBack 20s linear infinite;
+    opacity: .9;
+}
+
+@keyframes moveBack {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.finup-footer {
+    background-color: var(--cor-purple-footer);
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+.finup-footer figure {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.finup-footer figure img {
+    max-width: 160px;
+    margin: 0 auto;
+}
+
+.finup-footer p {
+    color: var(--cor-branca);
+    margin-bottom: 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.icons a {
+    transition: .2s ease;
+}
+
+.icons a:hover {
+    transform: scale(1.1);
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-line {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    width: 70%;
+    margin: 20px auto;
+}
+
+/* =========================================================
+   🌙 DARK MODE GLOBAL
+========================================================= */
+body.dark-mode {
+    background: var(--cor-fundoDark);
+    color: var(--cor-textoDark);
+}
+
+body.dark-mode header {
+    background: var(--cor-headerDark)
+}
+
+body.dark-mode .menu a {
+    color: var(--cor-textoDark)
+}
+
+body.dark-mode .menu a:hover {
+    color: var(--Pink)
+}
+
+body.dark-mode .modulo-box {
+    background: var(--cor-cardDark);
+    color: var(--cor-textoDark);
+    box-shadow: none
+}
+
+body.dark-mode #conquista{
+    color: var(--cor-branca);
+}
+body.dark-mode .grande-virada {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4)
+}
+
+body.dark-mode .bloco-principal .titulo-faixa {
+    background: var(--cor-botao);
+}
+
+body.dark-mode .bloco-principal .conteudo {
+    background: var(--cor-branca);
+    color: var(--cor-texto)
+}
+body.dark-mode #h3Teorico{
+    color: var(--cor-branca);
+}
+
+body.dark-mode #conhecerForca{
+    color: var(--cor-branca) ;
+    font-size: 1.5rem;
+}
+
+body.dark-mode .conteudo-box {
+    background: var(--cor-card);
+    color: var(--cor-textoDark);
+    border-left-color: var(--Pink)
+}
+
+body.dark-mode .video-card {
+    background: var(--cor-fundoDark);
+    border: none;
+}
+
+body.dark-mode .video-card iframe {
+    filter: brightness(.95)
+}
+
+body.dark-mode .botao-praticar {
+    background: #6b3aa3;
+    color: var(--cor-textoDark)
+}
+
+body.dark-mode .simulador-section{
+    background: var(--cor-fundoDark)
+}
+body.dark-mode .simulador-card,
+body.dark-mode #Simulador,
+body.dark-mode label{
+    background: var(--cor-branca);
+    color: var(--cor-texto)
+}
+body.dark-mode .botao-simular {
+    background: var(--cor-botao);
+    color: var(--cor-Texto-BTN)
+}
+
+body.dark-mode .resultado-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.04);
+    color: var(--cor-textok)
+}
+
+body.dark-mode #titulo{
+    color: var(--gradient-title) !important;
+}
+body.dark-mode .finup-footer {
+    background: #23122e
+}

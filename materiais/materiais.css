@@ -449,7 +449,7 @@ header {
 }
 
 .partners-title {
-  background: var(--gradient-title);
+  background: var(--gradient-title) !important;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
