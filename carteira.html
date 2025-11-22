@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinUp - Carteira Inteligente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="carteira.css" />
+    <link rel="shortcut icon" href="assets/favIcon.png" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="level">
+        <div class="level-left">
+            <img src="assets/FinupLogo.png" alt="FinUp" width="120" />
+            <nav class="menu level-item ml-6 desktop-menu">
+                <a href="dashboard.html">Home</a>
+                <a href="#">Missões</a>
+                <a href="#" class="has-text-weight-bold">Carteira</a>
+                <a href="#">Materiais</a>
+                <a href="#">Ranking</a>
+                <a href="#">Ajuda</a>
+            </nav>
+        </div>
+
+        <div class="level-right desktop-user">
+            <img src="assets/Raio.png" alt="Streak">
+            <img src="assets/Xp.png" class="level-item" alt="XP">
+            <img src="assets/notificacao.png" class="level-item" width="22" alt="Notificações" />
+            <div class="level-item">
+                <img src="assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
+                Nome de usuário
+            </div>
+        </div>
+
+        <div class="mobile-menu-toggle">
+            <button class="menu-button" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- BANNER CARTEIRA -->
+    <section class="welcome-banner">
+        <img src="assets/carteira-icon.svg" alt="carteira">
+        <div class="welcome-text">
+            <h2>Carteira Inteligente</h2>
+            <p>Acompanhe seus ganhos, gastos e saldo em tempo real — e veja seu progresso financeiro crescer a cada dia.
+            </p>
+        </div>
+    </section>
+    <main>
+
+        <!-- FILTROS DE PERÍODO -->
+        <section class="filters-section">
+            <div class="period-buttons">
+                <button class="period-btn active">Este mês</button>
+                <button class="period-btn">Mês passado</button>
+                <button class="period-btn">Este ano</button>
+                <button class="period-btn">Últimos 12 meses</button>
+            </div>
+            <div class="period-selector">
+                <img src="assets/calendar.svg" alt="icone de calendário">
+                <button class="period-selector-btn" style="font-weight: 600;">Selecione o período</button>
+            </div>
+        </section>
+
+        <!-- CARDS DE RESUMO -->
+        <section class="summary-cards">
+            <div class="card-summary balance-card">
+                <div class="card-label">Saldo Atual</div>
+                <div class="card-amount" id="saldoAtual">R$ 0,00</div>
+                <div class="card-badge positive">
+                    <i class="fas fa-arrow-up"></i> 0%
+                </div>
+            </div>
+
+            <div class="card-summary income-card">
+                <div class="card-label">Renda</div>
+                <div class="card-amount" id="rendaTotal">R$ 0,00</div>
+                <div class="card-badge positive">
+                    <i class="fas fa-arrow-up"></i> 0%
+                </div>
+            </div>
+
+            <div class="card-summary expense-card">
+                <div class="card-label">Despesas</div>
+                <div class="card-amount" id="despesasTotal">R$ 0,00</div>
+                <div class="card-badge negative">
+                    <i class="fas fa-arrow-down"></i> 0%
+                </div>
+            </div>
+        </section>
+
+        <!-- AÇÕES RÁPIDAS -->
+        <section class="quick-actions">
+            <button class="action-btn income-btn" onclick="openModal('income')">
+                <div class="action-icon income-icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="action-text">
+                    <div class="action-title">Adicionar renda</div>
+                    <div class="action-subtitle">Crie uma renda manualmente</div>
+                </div>
+            </button>
+
+            <button class="action-btn expense-btn" onclick="openModal('expense')">
+                <div class="action-icon expense-icon">
+                    <i class="fas fa-minus"></i>
+                </div>
+                <div class="action-text">
+                    <div class="action-title">Adicionar despesa</div>
+                    <div class="action-subtitle">Crie uma despesa manualmente</div>
+                </div>
+            </button>
+
+            <button class="action-btn transfer-btn">
+                <div class="action-icon transfer-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="action-text">
+                    <div class="action-title">Transferir dinheiro</div>
+                    <div class="action-subtitle">Selecione o valor e faça uma transferência</div>
+                </div>
+            </button>
+        </section>
+
+        <!-- GRÁFICO E TRANSAÇÕES -->
+        <section class="charts-section">
+            <div class="chart-card">
+                <h3 class="chart-title">Despesas por categoria</h3>
+                <canvas id="pieChart"></canvas>
+                <div id="legendContainer" class="legend-container"></div>
+            </div>
+
+            <div class="transactions-card">
+                <div class="transactions-header">
+                    <h3 class="transactions-title">Últimas transações</h3>
+                    <p class="transactions-subtitle">Verifique suas últimas transações</p>
+                </div>
+                <div class="transactions-list" id="transactionsList">
+                    <p class="empty-message">Nenhuma transação ainda. Adicione uma receita ou despesa!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL -->
+        <div id="transactionModal" class="modal">
+            <div class="modal-background" onclick="closeModal()"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="modalTitle">Adicionar Transação</p>
+                    <button class="delete" aria-label="close" onclick="closeModal()"></button>
+                </header>
+                <section class="modal-card-body">
+                    <form id="transactionForm">
+                        <div class="field">
+                            <label class="label">Descrição</label>
+                            <div class="control">
+                                <input class="input" type="text" id="description"
+                                    placeholder="Ex: Salário, Mercado, Netflix..." required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Valor (R$)</label>
+                            <div class="control">
+                                <input class="input" type="number" id="amount" step="0.01" placeholder="0,00" required>
+                            </div>
+                        </div>
+
+                        <div class="field" id="categoryField">
+                            <label class="label">Categoria</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="category" required>
+                                        <option value="">Selecione uma categoria</option>
+                                        <option value="Essenciais">Essenciais</option>
+                                        <option value="Dívidas">Dívidas</option>
+                                        <option value="Dia a Dia">Dia a Dia</option>
+                                        <option value="Lazer e Compras">Lazer e Compras</option>
+                                        <option value="Assinaturas">Assinaturas</option>
+                                        <option value="Família">Família</option>
+                                        <option value="Metas e Futuro">Metas e Futuro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Data</label>
+                            <div class="control">
+                                <input class="input" type="date" id="date" required>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" onclick="saveTransaction()">Salvar</button>
+                    <button class="button" onclick="closeModal()">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <div class="parallax-waves">
+        <div class="wave layer-back"></div>
+        <div class="wave layer-front"></div>
+    </div>
+
+    <footer class="footer finup-footer">
+        <div class="container has-text-centered">
+            <figure class="image is-inline-block mb-3">
+                <img src="assets/FinupLogo.png" alt="FinUp Logo" style="max-width:160px;">
+            </figure>
+            <p class="has-text-white is-size-6 mb-4">Sua jornada para a liberdade<br>financeira começa aqui!</p>
+            <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
+                <a href="#" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
+                <a href="#" class="mx-2"><img src="assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
+                <a href="#" class="mx-2"><img src="assets/mdi_github.svg" alt="GitHub" width="24"></a>
+            </div>
+            <hr class="footer-line">
+            <p class="has-text-white is-size-7 mt-3">© 2025 FinUp. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="carteira.js"></script>
+</body>
+
+</html>
