@@ -153,3 +153,22 @@ function showToast(message, isError = false) {
     setTimeout(() => toast.classList.add("hidden"), 400);
   }, 4000);
 }
+
+/* ============================
+       TEMA DARK/LIGHT
+    ============================ */
+const toggleBtnDesktop = document.getElementById("theme-toggle");
+const toggleBtnMobile = document.getElementById("theme-toggle-mobile");
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+
+    const dark = document.body.classList.contains("dark-mode");
+
+    if (toggleBtnDesktop) toggleBtnDesktop.textContent = dark ? "🌙" : "☀️";
+    if (toggleBtnMobile)  toggleBtnMobile.textContent = dark ? "🌙" : "☀️";
+}
+
+if (toggleBtnDesktop) toggleBtnDesktop.addEventListener("click", toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener("click", toggleTheme);
+
