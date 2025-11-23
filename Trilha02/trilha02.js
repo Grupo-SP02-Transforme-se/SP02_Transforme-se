@@ -1,15 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Toggle do menu mobile
-    const navbarBurger = document.querySelector('.navbar-burger');
-    const navbarMenu = document.querySelector('.navbar-menu');
-    
-    if (navbarBurger && navbarMenu) {
-      navbarBurger.addEventListener('click', () => {
-        navbarBurger.classList.toggle('is-active');
-        navbarMenu.classList.toggle('is-active');
-      });
+    // Elementos do menu mobile
+    const menuButton = document.querySelector('.menu-button');
+    const menuOverlay = document.querySelector('.mobile-menu-overlay');
+    const closeButton = document.querySelector('.close-button');
+
+    // Abre o menu
+    if (menuButton) {
+        menuButton.addEventListener('click', () => {
+            menuOverlay.classList.add('active');
+        });
     }
-  });
+
+    // Fecha pelo botão X
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            menuOverlay.classList.remove('active');
+        });
+    }
+
+    // Fecha ao clicar fora do menu (no overlay escuro)
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', (e) => {
+            if (e.target === menuOverlay) {
+                menuOverlay.classList.remove('active');
+            }
+        });
+    }
+});
 
     document.getElementById("btnSimular").addEventListener("click", () => {
         const valor = parseFloat(document.getElementById("valorDivida").value);
@@ -38,12 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Toggle do tema claro/escuro
-    const toggleBtn = document.getElementById("theme-toggle");
+const toggleBtnDesktop = document.getElementById("theme-toggle");
+const toggleBtnMobile = document.getElementById("theme-toggle-mobile");
 
-    toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
 
-        const dark = document.body.classList.contains("dark-mode");
-        toggleBtn.textContent = dark ? "🌙" : "☀️";
-    });
+    const dark = document.body.classList.contains("dark-mode");
+
+    // Atualiza o ícone nos dois botões (se existirem)
+    if (toggleBtnDesktop) toggleBtnDesktop.textContent = dark ? "🌙" : "☀️";
+    if (toggleBtnMobile) toggleBtnMobile.textContent  = dark ? "🌙" : "☀️";
+}
+
+// Liga o evento em ambos os botões (se existirem)
+if (toggleBtnDesktop) toggleBtnDesktop.addEventListener("click", toggleTheme);
+if (toggleBtnMobile) toggleBtnMobile.addEventListener("click", toggleTheme);
+
 

@@ -54,10 +54,7 @@ body {
 ======================================== */
 .level{
     background-color: var(--cor-header);
-}
-#usuario{
-    color: var(--cor-texto);
-    font-weight: 500;
+    
 }
 .menu a {
     color: var(--cor-texto);
@@ -70,6 +67,7 @@ body {
 }
 
 .level-right {
+
     display: flex;
     gap: 10px;
     margin-right: 20px;
@@ -485,67 +483,126 @@ body {
 /* ========================================
    SIMULADOR
 ======================================== */
-.simulador-section {
-    background: var(--cor-fundo);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
-.instrucoes-topo {
-    max-width: 90%;
-    margin: 0 auto;
-    font-size: 0.9rem;
-    line-height: 1.3rem;
-    padding: 0 20px;
-}
-
-.simulador-card {
-    max-width: 90%;
-    margin: 0 auto;
-    border-radius: 14px;
-    padding: 1.5rem;
-}
-
-.simulador-label {
-    font-weight: 600;
-}
-
-.botao-simular {
-    background: var(--cor-cardDark);
-    color: var(--cor-branca);
-    font-size: 1rem;
-    width: 90%;
-    max-width: 400px;
-    padding: 0.8rem 1.5rem;
-    border-radius: 10px;
-    box-shadow: 4px 4px 0px #2d1342;
-    border: none;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
-}
-
-.botao-simular:hover {
-    background: var(--cor-botao-hover);
-    color: var(--cor-texto);
-}
-
-.resultado-box {
-    border: 1px solid #d2d2d2;
-    background: #fafafa;
-    padding: 1rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.alerta {
-    margin-top: 1rem;
-    color: #c92a2a;
-    font-weight: bold;
+/* ========================================
+   SIMULADOR - VERSÃO CORRIGIDA
+======================================== */
+/* CONTÊINER PRINCIPAL */
+.reserva-container {
+    max-width: 600px;         /* Diminui a largura */
+    margin: 40px auto;        /* Centraliza horizontalmente */
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     text-align: center;
 }
+
+/* Ajuste do título */
+.reserva-container h2 {
+    color: #2e0d47;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.reserva-container label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    color: #2e0d47;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* INPUTS */
+.reserva-container input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Wrapper para input + botão */
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+/* BOTÃO */
+.input-wrapper button {
+    padding: 14px 22px;
+    background: #3e005c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-wrapper button:hover {
+    background: #5e008a;
+}
+
+/* ALERTA */
+.alerta {
+    margin-top: 1.5rem;
+    color: red;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+
+/* ========================================
+   DARK MODE PARA SIMULADOR
+======================================== */
+body.dark-mode .simulador-section {
+    background: var(--cor-fundoDark);
+}
+
+body.dark-mode .simulador-card {
+    background: var(--cor-cardDark);
+    border-color: var(--cor-headerDark);
+}
+
+body.dark-mode .simulador-titulo {
+    color: var(--cor-textoDark);
+}
+
+body.dark-mode .simulador-label {
+    color: var(--cor-textoDark);
+}
+
+body.dark-mode .simulador-input {
+    background: var(--cor-headerDark);
+    border-color: var(--cor-botao);
+    color: var(--cor-textoDark);
+}
+
+body.dark-mode .simulador-input:focus {
+    border-color: var(--cor-botao-hover);
+}
+
+body.dark-mode .valor-mes {
+    background: var(--cor-headerDark);
+    color: var(--cor-textoDark);
+}
+
+body.dark-mode .info-texto {
+    background: var(--cor-headerDark);
+    color: var(--cor-textoDark);
+    border-left-color: var(--cor-botao);
+}
+
+body.dark-mode .alerta {
+    background: #2d1b1b;
+    color: #ff6b6b;
+    border-left-color: #ff6b6b;
+}
+
 
 /* ========================================
    PARCEIROS
@@ -714,8 +771,9 @@ body {
 ======================================== */
 body.dark-mode {
     background: var(--cor-fundoDark);
-    color: var(--cor-texto);
+    color: var(--cor-textoDark);
 }
+
 body.dark-mode header {
     background: var(--cor-header);
 }
@@ -740,6 +798,7 @@ body.dark-mode #conquista{
 
 body.dark-mode .grande-virada {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4)
+
 }
 
 body.dark-mode .bloco-principal .titulo-faixa {
@@ -1122,5 +1181,63 @@ body.dark-mode .finup-footer {
     
     .bloco-principal {
         max-width: 1200px;
+    }
+}
+/* ========================================
+   RESPONSIVIDADE DO SIMULADOR
+======================================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .simulador-card {
+        padding: 2rem;
+    }
+    
+    .simulador-form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .resultados-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .coluna-info {
+        grid-column: span 1;
+    }
+    
+    .simulador-titulo {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .simulador-card {
+        padding: 1.5rem;
+    }
+    
+    .simulador-container {
+        padding: 0 15px;
+    }
+    
+    .simulador-titulo {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .resultados-grid {
+        gap: 0.8rem;
+    }
+    
+    .valor-mes {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+    
+    .info-texto {
+        padding: 1rem;
+        font-size: 0.9rem;
     }
 }

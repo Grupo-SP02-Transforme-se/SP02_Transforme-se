@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="trilha02.css" />
+    <link rel="stylesheet" href="trilha03.css" />
     <link rel="shortcut icon" href="../assets/Logo da FinUp_ Educação Financeira.png" type="image/x-icon">
 </head>
 
@@ -20,6 +20,7 @@
                 <a href="../home/home.html">Home</a>
                 <a href="#">Missões</a>
                 <a href="../dashboard/dashboard.html">Dashboard</a>
+                <a href="#">Trilhas</a>
                 <a href="#">Carteira</a>
                 <a href="../materiais/materiais.html">Materiais</a>
                 <a href="../Ranking/ranking.html">Ranking</a>
@@ -33,8 +34,8 @@
             <img src="../assets/Xp.png" class="level-item" alt="XP" />
             <img src="../assets/notificacao.png" class="level-item" width="22" alt="Notificações" />
             <div class="level-item">
-            <img src="../assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
-                <p id="usuario">usuário</p>
+                <img src="../assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
+                <p>usuário</p>
             </div>
         </div>
 
@@ -54,9 +55,9 @@
                 <nav class="mobile-nav">
                     <a href="../home/home.html"><i class="fas fa-home"></i>Home</a>
                     <a href="#"><i class="fas fa-flag"></i>Missões</a>
-                    <a href="../dashboard/dashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                    <a href="#"> <i class="fa-solid fa-signs-post"></i>Trilhas</a>
                     <a href="../carteira/carteira.html"><i class="fas fa-wallet"></i>Carteira</a>
+                    <a href="../dashboard/dashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a href="#"> <i class="fa-solid"></i>Trilhas</a>
                     <a href="../materiais/materiais.html"><i class="fas fa-book"></i>Materiais</a>
                     <a href="../Ranking/ranking.html"><i class="fas fa-trophy"></i>Ranking</a>
                     <a href="../FAQ/FAQ.html" class="has-text-weight-bold"><i
@@ -99,17 +100,17 @@
 
             <!-- Badge -->
             <p class="mt-3 mb-6 has-text-weight-semibold" id="conquista">
-                Badge de Conclusão: 🏅 “Caçador de Dívidas”
+                Badge de Conclusão: 🏅 “Guardião da reserva"
             </p>
 
             <!-- Bloco roxo grande -->
             <div class="bloco-principal">
-                <div class="titulo-faixa">O Inimigo Oculto: Juros Compostos</div>
+                <div class="titulo-faixa">Lição 2.1 - Por que a Reserva de Emergência é essencial?</div>
 
                 <div class="conteudo">
                     <div class="objetivo-sub">🎯 Objetivo da Lição</div>
                     <p class="objetivo-text">
-                        Entender como os juros compostos agem nas dívidas e o perigo do rotativo
+                        Entender a função e a importância da Reserva de Emergência antes de investir
                     </p>
                 </div>
             </div>
@@ -120,19 +121,16 @@
 
             <div class="box conteudo-box">
                 <p>
-                    Se nos investimentos os juros compostos são seus amigos,
-                    nas dívidas eles são o grande vilão.
+                    Qual é o seu número mágico?
                 </p>
 
                 <p class="mt-3">
-                    O juros sobre juros — o rotativo do cartão de crédito, por exemplo —
-                    pode transformar uma dívida pequena em uma bola de neve gigante em pouco tempo.
+                    A Reserva de Emergência geralmente equivale a 3 a 12 meses do seu custo de vida Essencial.
+                    Se você tem emprego estável, 3 a 6 meses podem ser suficientes. Se você é autônomo ou
+                    tem uma renda variável te dão mais segurança. Revise seu orçamento do módulo 1 para saber seu custo
+                    de vida
                 </p>
             </div>
-
-            <p class="mt-6 has-text-weight-bold" id="conhecerForca">
-                Conhecer essa força é o primeiro passo para vencê-la!
-            </p>
         </div>
     </section>
 
@@ -147,11 +145,10 @@
 
             <!-- Card do vídeo -->
             <div class="video-card box">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/G6LJcuKY80c?si=pS-ZNTCuGsSEbPkW"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Dnl6Y4jghbo?si=lt4lcweXdZVIR7_8"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <!-- Botão Vamos Praticar -->
@@ -161,66 +158,33 @@
 
             <!-- Instruções -->
             <p class="instrucoes mt-6 has-text-weight-bold" id="instrucoes">
-                Instrução: “Veja o poder dos juros! Insira um valor fictício de dívida
-                (ex: R$ 500) no cartão de crédito e coloque a taxa de juros (ex: 15% ao mês).
-                Simule quanto ela torna em 3 e em 6 meses planejando sua estratégia.”
+                Instrução: "Insira seu 'Custo de Vida Essencial Mensal' (apenas necessidades). A calculadora mostrará
+                sua Reserva ideal para 6 meses
             </p>
 
         </div>
     </section>
 
-    <section class="section simulador-section">
-        <div class="container has-text-centered">
+<section class="simulador-section">
+<div class="reserva-container">
+    <h2>Calculadora de Reserva</h2>
 
-            <!-- Card principal -->
-            <div class="box simulador-card">
+    <label for="custo">Custo mensal.</label>
+    <div class="input-wrapper">
+        <input type="number" id="custo" placeholder="Digite seu custo">
+        <button id="btnCalcular">Calcular</button>
+    </div>
 
-                <h2 class="title is-4" id="Simulador">Simulador de Dívida</h2>
-                <p class="descricao">
-                    Insira um valor e uma taxa de juros para visualizar o crescimento da dívida.
-                </p>
+    <label for="resultado">Sua reserva ideal (6 meses)</label>
+    <input type="text" id="resultado" readonly placeholder="R$ X.xxx,xx">
 
-                <!-- Inputs -->
-                <div class="columns mt-4">
-                    <div class="column">
-                        <label class="label simulador-label">Valor da Dívida.</label>
-                        <input id="valorDivida" class="input" type="number" placeholder="Ex: 500">
-                    </div>
+    <p class="alerta">
+        Seu custo de vida atual permite economizar para a Reserva?
+        Onde você pode cortar para acelerar?
+    </p>
+</div>
 
-                    <div class="column">
-                        <label class="label simulador-label">Juros ao Mês (%)</label>
-                        <input id="taxaJuros" class="input" type="number" placeholder="Ex: 15">
-                    </div>
-                </div>
-
-                <!-- Botão -->
-                <button id="btnSimular" class="button botao-simular mt-3 mb-4">
-                    Simular
-                </button>
-
-                <!-- Resultado -->
-                <div id="resultado" class="resultado-box is-hidden">
-                    <div class="columns is-mobile">
-                        <div class="column has-text-left">
-                            Após 3 Meses<br>
-                            Após 6 Meses
-                        </div>
-
-                        <div class="column has-text-right" id="valoresResultado">
-                            R$ 0,00<br>
-                            R$ 0,00
-                        </div>
-                    </div>
-                </div>
-
-                <p class="alerta is-hidden" id="alerta">
-                    Assustador, né? Os juros compostos transformam dívidas pequenas em gigantes.
-                </p>
-
-            </div>
-        </div>
-    </section>
-
+</section>
 
 
     <div class="parceiros has-text-centered">
@@ -284,6 +248,6 @@
         </script>
     </footer>
 </body>
-<script src="trilha02.js"></script>
+<script src="trilha03.js"></script>
 
 </html>
