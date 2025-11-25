@@ -745,13 +745,13 @@ LINE
 }
 
 .layer-back {
-  background-image: url("assets/OndaRoxa.png");
+  background-image: url("../assets/OndaRoxa.png");
   animation: moveBack 20s linear infinite;
   opacity: .9;
 }
 
 .layer-front {
-  background-image: url("assets/OndaRoxa.png");
+  background-image: url("../assets/OndaRoxa.png");
   animation: moveFront 25s linear infinite;
   opacity: .5;
 }

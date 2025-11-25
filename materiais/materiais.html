@@ -305,30 +305,6 @@
   </script>
   
     </footer>
-
-    <script>
-        // Toggle do menu mobile
-        const menuButton = document.querySelector('.menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu-overlay');
-        const closeButton = document.querySelector('.close-button');
-
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            menuButton.classList.add('active');
-        });
-
-        closeButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            menuButton.classList.remove('active');
-        });
-
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                mobileMenu.classList.remove('active');
-                menuButton.classList.remove('active');
-            }
-        });
-    </script>
     <script src="materiais.js"></script>
 </body>
 </html>

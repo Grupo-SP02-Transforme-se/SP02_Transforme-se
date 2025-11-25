@@ -155,25 +155,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ========================================
-// INSTRUÇÕES DE USO
-// ========================================
-/*
-✅ CONFIGURADO COM SEUS ARQUIVOS!
+        // Toggle do menu mobile
+        const menuButton = document.querySelector('.menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu-overlay');
+        const closeButton = document.querySelector('.close-button');
 
-Estrutura atual:
-assets/
-  └── ebooks-e-planilhas/
-      ├── Controle de Faturamento l MEI.xlsx
-      ├── Tabela Price e SAC (1).xlsx
-      ├── ORCAMENTO_FAMILIAR (1).xlsx
-      ├── Guia-Definitivo-da-Reserva-de-Emergencia.pdf
-      ├── Guia-do-Cartao-de-Credito-De-Vilao-a-Aliado.pdf
-      └── Liberdade-Financeira-Como-Sair-das-Dividas-em-10-Passos.pdf
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            menuButton.classList.add('active');
+        });
 
-Para usar:
-1. Salve este arquivo como "materiais.js" na raiz do projeto
-2. Adicione no HTML antes do </body>: <script src="materiais.js"></script>
-3. Remova o <script> que já existe no HTML (será substituído por este)
-4. Pronto! Os downloads já estão funcionando! 🎉
-*/
+        closeButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuButton.classList.remove('active');
+        });
+
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+                menuButton.classList.remove('active');
+            }
+        });
