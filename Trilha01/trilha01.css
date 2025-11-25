@@ -519,7 +519,8 @@ body {
     height: 200px;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 10 auto;
+
 }
 
 .carousel-track {
@@ -553,6 +554,7 @@ body {
 
 #titulo {
     color: var(--cor-purple-dark);
+    margin-bottom: 200px;
 }
 
 @keyframes slide {
@@ -851,7 +853,10 @@ body.dark-mode .finup-footer {
     column-gap: 25px; /* Sem espaço horizontal */
     row-gap: 15px;
     justify-content: center; /* Centraliza tudo */
+    margin-bottom: 200px; /* ajuste o valor como quiser */
 }
+
+
 
 
 .card {
