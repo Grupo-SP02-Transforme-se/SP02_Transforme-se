@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -29,6 +29,7 @@
         <div class="level-right desktop-user">
             <img src="assets/Raio.png" alt="Streak">
             <img src="assets/Xp.png" class="level-item" alt="XP">
+            <img src="./assets/BOTÃO DARK E LIGHT MODE.png" class="level-item" alt="Dark-mode">
             <img src="assets/notificacao.png" class="level-item" width="22" alt="Notificações" />
             <div class="level-item">
                 <img src="assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
@@ -95,35 +96,61 @@
     </section>
     <!--Final/boas vindas-->
 
+    <!-- Exemplo: rádio customizado (compatível com o CSS em missões.css) -->
+    <div class="container-missao" aria-label="Exemplo de rádio customizado">
+        <h1 style="font-size:18px; margin-bottom:12px;">Exemplo — Rádio customizado</h1>
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="ex-radio-1" name="exemplo-radio">
+                <label for="ex-radio-1">Opção A</label>
+            </div>
+        </div>
+
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="ex-radio-2" name="exemplo-radio" checked>
+                <label for="ex-radio-2">Opção B (selecionada)</label>
+            </div>
+        </div>
+
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="ex-radio-3" name="exemplo-radio" disabled>
+                <label for="ex-radio-3">Opção C (bloqueada)</label>
+            </div>
+        </div>
+    </div>
+
+
 
     <!--Início missões-->
     <div class="container-missao">
         <h1>Desafios diários</h1>
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Complete uma lição</label>
+                <input type="checkbox" id="licao" name="desafios">
+                <label class="texto" for="licao">Complete uma lição</label>
             </div>
             <span class="Xp">+50XP</span>
         </div>
         <div class="campo">   
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Registre um gasto</label>
+                <input type="checkbox" id="gasto" name="desafios">
+                <label class = "texto" for="gasto">Registre um gasto</label>
             </div>
             <span class="Xp">+50XP</span>
         </div>
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Guarde R$50,00</label>
+                <input type="checkbox" id="guarde" name="desafios">
+                <label class = "texto" for="guarde">Guarde R$50,00</label>
             </div>
             <span class="Xp">+50XP</span>
         </div>
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Consulte seu Score no Serasa</label>
+                <input type="checkbox" id="score" name="desafios">
+                <label class = "texto" for="score">Consulte seu Score no Serasa</label>
             </div>
             <span class="Xp">+50XP</span>
         </div>
@@ -134,14 +161,12 @@
     <section>
         <div class="divider">
             <span class="line"></span>
-
             <div class="content">
                 <span class="icon-cadeado">
                     <img src="./assets/Cadeado.png" alt="#">
                 </span>
                 <span class="text">Desafios semanais disponiveis apenas nas versões <a href="#">plus e +pro</a></span>
             </div>
-
             <span class="line"></span>
         </div>
     </section>
@@ -151,35 +176,40 @@
         <h1>Desafios semanais</h1>
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Economise R$200,00</label>
+                <input type="radio" id="economise">
+                <label for="economise">Economise R$200,00</label>
             </div>
             <span class="Xp">+100XP</span>
         </div>
+
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Mantenha um suas atividades em dia </label>
+                <input type="radio" id="atividade">
+                <label for="atividade">Mantenha um suas atividades em dia </label>
             </div>
             <span class="Xp">+150XP</span>
         </div>
+
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Guarde R$ 100,00</label>
+                <input type="radio" id="guardo">
+                <label for="guardo">Guarde R$ 100,00</label>
             </div>
             <span class="Xp">+150XP</span>
         </div>
+
         <div class="campo">
             <div class="opcao">
-                <input type="radio" id="radio">
-                <label for="radio">Acumule um total de 2.000XP</label>
+                <input type="radio" id="acumule">
+                <label for="acumule">Acumule um total de 2.000XP</label>
             </div>
             <span class="Xp">+200XP</span>
         </div>
     </div>
     <!--SEÇÃO MISSÕES SEMANAIS-->
 
+    
+    <!--FOOTER-->
     <div class="parceiros has-text-centered">
         <h1 class="title" id="titulo">Parceiros</h1>
     </div>
@@ -215,9 +245,9 @@
             <p class="has-text-white is-size-6 mb-4">Sua jornada para a liberdade<br>financeira começa aqui!</p>
 
             <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
-                <a href="#" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
-                <a href="#" class="mx-2"><img src="assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
-                <a href="#" class="mx-2"><img src="assets/mdi_github.svg" alt="GitHub" width="24"></a>
+                <a href="https://www.instagram.com/finup.projeto?igsh=a3V6eXQxNmFzY3Bp" class="mx-2"><img src="assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
+                <a href="https://www.linkedin.com/in/finup-up-240a81398/" class="mx-2"><img src="assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
+                <a href="https://github.com/Grupo-SP02-Transforme-se/SP02_Transforme-se" class="mx-2"><img src="assets/mdi_github.svg" alt="GitHub" width="24"></a>
             </div>
 
             <hr class="footer-line">
