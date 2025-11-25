@@ -126,8 +126,8 @@ function handleCredentialResponse(response) {
     localStorage.setItem('userName', user.name);
     localStorage.setItem('userPicture', user.picture);
     
-    console.log('Redirecionando para /Home/home.html');
-    window.location.href = "../home/home.html";
+    console.log('Redirecionando para a dashboard...');
+    window.location.href = "../dashboard/dashboard.html";
     
   } catch (error) {
     console.error('Erro ao processar login do Google:', error);

@@ -7,8 +7,8 @@
 const downloadFiles = {
     // PLANILHAS
     'planilha-mei': {
-        file: '../../assets/ebooks-e-planilhas/Controle de Faturamento l MEI.xlsx',
-        filename: 'Controle_de_Faturamento_MEI.xlsx'
+        file: '../assets/ebooks-e-planilhas/ControleMEI.xlsx',
+        filename: 'ControleMEI.xlsx'
     },
     'quitacao-antecipada': {
         file: '../assets/ebooks-e-planilhas/Tabela Price e SAC (1).xlsx',

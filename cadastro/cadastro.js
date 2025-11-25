@@ -1,3 +1,21 @@
+// ===============================
+// FUNÇÃO DE TOAST
+// ===============================
+function showToast(message, type = 'success') {
+  const toast = document.getElementById('toast');
+
+  toast.textContent = message;
+  toast.className = `toast show ${type}`;
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2500);
+}
+
+
+// ===============================
+// SISTEMA DE CADASTRO
+// ===============================
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formCadastro');
   const msg = document.getElementById('msg');
@@ -56,23 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
     dbServiceAtual.push(novoUsuario);
     localStorage.setItem('dbService', JSON.stringify(dbServiceAtual));
 
+    // 🍀 TOAST DE SUCESSO
     showSuccess('Cadastro realizado com sucesso!');
+
     localStorage.setItem('usuarioLogado', JSON.stringify({ 
       nome: name.value, 
       email: email.value 
     }));
 
-    setTimeout(() => window.location.href = "/dashboard/dashboard.html", 1200);
+    setTimeout(() => window.location.href = "../dashboard/dashboard.html", 1200);
   });
 
   function showError(text) {
-    msg.textContent = text;
-    msg.className = 'msg error';
+    showToast(text, 'error');
   }
 
   function showSuccess(text) {
-    msg.textContent = text;
-    msg.className = 'msg success';
+    showToast(text, 'success');
   }
 
   function clearError() {
@@ -86,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+// ===============================
+// GOOGLE AUTH
+// ===============================
 function initializeGoogleAuth() {
   if (typeof google === 'undefined') {
     console.log('Aguardando biblioteca do Google...');
@@ -121,7 +143,7 @@ function handleGoogleCredentialResponse(response) {
   
   if (!response || !response.credential) {
     console.error('Resposta inválida do Google:', response);
-    showMessage('Erro: Não foi possível processar o login com Google', 'error');
+    showToast('Erro ao processar login com Google', 'error');
     return;
   }
   
@@ -130,7 +152,7 @@ function handleGoogleCredentialResponse(response) {
     console.log("User Info from Google:", user);
     
     if (!user.email || !user.email.includes('@')) {
-      showMessage('Email inválido recebido do Google', 'error');
+      showToast('Email inválido recebido do Google', 'error');
       return;
     }
     
@@ -138,15 +160,14 @@ function handleGoogleCredentialResponse(response) {
     const usuarioExistente = dbService.find(u => u.email === user.email);
     
     if (usuarioExistente) {
-      showMessage('Este e-mail já está cadastrado! Faça login em vez de cadastrar.', 'error');
+      showToast('Este e-mail já está cadastrado!', 'error');
       
       setTimeout(() => {
-        window.location.href = "../home/home.html";
+        window.location.href = "../dashboard/dashboard.html";
       }, 2000);
       return;
     }
 
-    // Cadastrar novo usuário do Google
     const novoUsuario = {
       nome: user.name || user.email.split('@')[0],
       email: user.email,
@@ -156,7 +177,6 @@ function handleGoogleCredentialResponse(response) {
     
     dbService.push(novoUsuario);
     localStorage.setItem('dbService', JSON.stringify(dbService));
-    
 
     localStorage.setItem('usuarioLogado', JSON.stringify({ 
       nome: user.name || user.email.split('@')[0],
@@ -164,18 +184,22 @@ function handleGoogleCredentialResponse(response) {
       picture: user.picture 
     }));
     
-    showMessage('Cadastro com Google realizado com sucesso!', 'success');
+    showToast('Cadastro com Google realizado com sucesso!', 'success');
     
     setTimeout(() => {
-      window.location.href = "../home/home.html";
+      window.location.href = "../dashboard/dashboard.html";
     }, 1500);
     
   } catch (error) {
     console.error('Erro ao processar cadastro com Google:', error);
-    showMessage('Erro ao fazer cadastro com Google. Tente novamente.', 'error');
+    showToast('Erro ao fazer cadastro com Google', 'error');
   }
 }
 
+
+// ===============================
+// JWT PARSE
+// ===============================
 function parseJwt(token) {
   try {
     const base64Url = token.split('.')[1];
@@ -187,14 +211,5 @@ function parseJwt(token) {
   } catch (error) {
     console.error('Erro ao decodificar JWT:', error);
     throw error;
-  }
-}
-
-function showMessage(text, type) {
-  const msg = document.getElementById('msg');
-  if (msg) {
-    msg.textContent = text;
-    msg.className = `msg ${type}`;
-    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
