@@ -266,4 +266,30 @@
       max-width: 280px;
     }
   }
+  /* TOAST */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  background: #48c774; /* verde Bulma */
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast.error {
+  background: #f14668; /* vermelho Bulma */
+}
+
   
