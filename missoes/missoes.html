@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missões</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="missoes.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="../assets/Logo da FinUp_ Educação Financeira.png" type="image/x-icon" />
+</head>
+
+<body>
+    <header class="level">
+        <div class="level-left">
+            <img src="../assets/FinupLogo.png" alt="FinUp" width="120" />
+            <nav class="menu level-item ml-6 desktop-menu">
+                    <a href="../home//home.html"><i class="fas fa-home"></i>Home</a>
+                    <a href="../missoes/missoes.html" class="has-text-weight-bold"><i class="fas fa-flag"></i>Missões</a>
+                    <a href="../dashboard/dashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a href="../Trilhas/trilhas.html"> <i class="fa-solid fa-signs-post"></i>Trilhas</a>
+                    <a href="../carteira/carteira.html"><i class="fas fa-wallet"></i>Carteira</a>
+                    <a href="../materiais/materiais.html"><i class="fas fa-book"></i>Materiais</a>
+                    <a href="../Ranking/ranking.html"><i class="fas fa-trophy"></i>Ranking</a>
+                    <a href="../FAQ/FAQ.html"><i class="fas fa-question-circle"></i>Ajuda</a>
+            </nav>
+        </div>
+
+        <div class="level-right desktop-user">
+            <img src="../assets/Raio.png" alt="Streak">
+            <img src="../assets/Xp.png" class="level-item" alt="XP">
+            <img src="../assets/BOTÃO DARK E LIGHT MODE.png" class="level-item" alt="Dark-mode">
+            <img src="../assets/notificacao.png" class="level-item" width="22" alt="Notificações" />
+            <div class="level-item">
+                <img src="../assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
+                Nome de usuário
+            </div>
+        </div>
+
+        <div class="mobile-menu-toggle">
+            <button class="menu-button" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <img src="../assets/FinupLogo.png" alt="FinUp" width="120" />
+                    <button class="close-button" aria-label="Fechar menu">×</button>
+                </div>
+
+                <nav class="mobile-nav">
+                    <a href="../dashboard/dashboard.html"><i class="fas fa-home"></i>Home</a>
+                    <a href="../materiais/materiais.html"><i class="fas fa-flag"></i>Materiais</a>
+                    <a href="../trilhas/trilhas.html"><i class="fas fa-wallet"></i>Trilhas</a>
+                    <a href="../carteira/carteira.html"><i class="fas fa-book"></i>Carteira</a>
+                    <a href="../missoes/missoes.html"><i class="fas fa-trophy"></i>Missões</a>
+                    <a href="../ranking/ranking.html"><i class="fas fa-trophy"></i>Ranking</a>
+                    <a href="../FAQ/FAQ.html" class="has-text-weight-bold"><i class="fas fa-question-circle"></i>Ajuda</a>
+                </nav>
+
+                <div class="mobile-user-info">
+                    <div class="user-profile">
+                        <img src="../assets/userLogo.svg" width="40" alt="Usuário" />
+                        <div class="user-details">
+                            <span class="user-name">Nome de usuário</span>
+                            <div class="user-stats">
+                                <div class="stat">
+                                    <img src="../assets/Raio.png" alt="Streak" width="16">
+                                    <span>5 dias</span>
+                                </div>
+                                <div class="stat">
+                                    <img src="../assets/Xp.png" alt="XP" width="16">
+                                    <span>1.250 XP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-notification">
+                        <img src="../assets/notificacao.png" alt="Notificações" width="20">
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--Boas vindas -->
+    <section class="welcome-banner">
+        <img src="../assets/piggy-bank (1) 1.png" alt="Cofrinho">
+        <div class="welcome-text">
+            <h2>Missões e Desafios</h2>
+            <p>Complete os desafios diários e semanais para ganhar mais XP e manter sua atividade!</p>
+        </div>
+    </section>
+    <!--Final/boas vindas-->
+
+    
+    <!--Início missões-->
+    <div class="container-missao">
+        <h1>Desafios diários</h1>
+        <div class="campo">
+            <div class="opcao">
+                <input type="checkbox" id="licao" name="desafios">
+                <label class="texto" for="licao">Complete uma lição</label>
+            </div>
+            <span class="Xp">+50XP</span>
+        </div>
+        <div class="campo">   
+            <div class="opcao">
+                <input type="checkbox" id="gasto" name="desafios">
+                <label class = "texto" for="gasto">Registre um gasto</label>
+            </div>
+            <span class="Xp">+50XP</span>
+        </div>
+        <div class="campo">
+            <div class="opcao">
+                <input type="checkbox" id="guarde" name="desafios">
+                <label class = "texto" for="guarde">Guarde R$50,00</label>
+            </div>
+            <span class="Xp">+50XP</span>
+        </div>
+        <div class="campo">
+            <div class="opcao">
+                <input type="checkbox" id="score" name="desafios">
+                <label class = "texto" for="score">Consulte seu Score</label>
+            </div>
+            <span class="Xp">+50XP</span>
+        </div>
+    </div>
+    <!--Final/missões-->
+
+    <!--Seção bloqueada-->
+    <section>
+        <div class="divider">
+            <span class="line"></span>
+            <div class="content">
+                <span class="icon-cadeado">
+                    <img src="../assets/Cadeado.png" alt="#">
+                </span>
+                <span class="text">Desafios semanais disponiveis apenas nas versões <a href="#">plus e +pro</a></span>
+            </div>
+            <span class="line"></span>
+        </div>
+    </section>
+
+    <!--SEMANAIS-->
+    <div class="container-semanais">
+        <h1>Desafios semanais</h1>
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="economise">
+                <label for="economise">Economise R$200,00</label>
+            </div>
+            <span class="Xp">+100XP</span>
+        </div>
+
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="atividade">
+                <label for="atividade">Mantenha um suas atividades em dia </label>
+            </div>
+            <span class="Xp">+150XP</span>
+        </div>
+
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="guardo">
+                <label for="guardo">Guarde R$ 100,00</label>
+            </div>
+            <span class="Xp">+150XP</span>
+        </div>
+
+        <div class="campo">
+            <div class="opcao">
+                <input type="radio" id="acumule">
+                <label for="acumule">Acumule um total de 2.000XP</label>
+            </div>
+            <span class="Xp">+200XP</span>
+        </div>
+    </div>
+    <!--SEÇÃO MISSÕES SEMANAIS-->
+
+    
+    <!--FOOTER-->
+    <div class="parceiros has-text-centered">
+        <h1 class="title" id="titulo">Parceiros</h1>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+                <div class="image"><img src="../assets/Proa.png" alt="Logo PROA"></div>
+            </div>
+            <div class="carousel-slide">
+                <div class="image"><img src="../assets/Proa.png" alt="Logo PROA"></div>
+            </div>
+            <div class="carousel-slide">
+                <div class="image"><img src="../assets/Proa.png" alt="Logo Proa"></div>
+            </div>
+            <div class="carousel-slide">
+                <div class="image"><img src="../assets/Proa.png" alt="Logo Proa"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-waves">
+        <div class="wave layer-back"></div>
+        <div class="wave layer-front"></div>
+    </div>
+
+    <footer class="footer finup-footer">
+        <div class="container has-text-centered">
+            <figure class="image is-inline-block mb-3">
+                <img src="../assets/FinupLogo.png" alt="FinUp Logo" style="max-width:160px;">
+            </figure>
+
+            <p class="has-text-white is-size-6 mb-4">Sua jornada para a liberdade<br>financeira começa aqui!</p>
+
+            <div class="icons is-flex is-justify-content-center is-align-items-center mb-4">
+                <a href="https://www.instagram.com/finup.projeto?igsh=a3V6eXQxNmFzY3Bp" class="mx-2"><img src="../assets/mdi_instagram.svg" alt="Instagram" width="24"></a>
+                <a href="https://www.linkedin.com/in/finup-up-240a81398/" class="mx-2"><img src="../assets/Linkedln.svg" alt="LinkedIn" width="24"></a>
+                <a href="https://github.com/Grupo-SP02-Transforme-se/SP02_Transforme-se" class="mx-2"><img src="../assets/mdi_github.svg" alt="GitHub" width="24"></a>
+            </div>
+
+            <hr class="footer-line">
+
+            <p class="has-text-white is-size-7 mt-3">© 2025 FinUp. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+<script src="missoes.js"></script>
+</body>
+
+</html>

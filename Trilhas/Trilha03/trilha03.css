@@ -662,10 +662,14 @@ body.dark-mode .alerta {
 }
 
 #titulo {
-    color: var(--cor-purple-dark);
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 0 20px;
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  display: inline-block;
 }
 
 @keyframes slide {
@@ -699,7 +703,7 @@ body.dark-mode .alerta {
 }
 
 .layer-back {
-    background-image: url("../assets/OndaRoxa.png");
+    background-image: url("../../assets/OndaRoxa.png");
     animation: moveBack 20s linear infinite;
     opacity: .9;
 }

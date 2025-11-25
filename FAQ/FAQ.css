@@ -7,6 +7,7 @@
   --cor-botao: #d1a2e7;
   --cor-botao-hover: #d386f6;
   --cor-Texto-BTN: #67059E;
+   --gradient-title: linear-gradient(to right, #8a2be2, #ff69b4);
 
       /* 🌙 VARIÁVEIS DARK MODE */
     --cor-fundoDark: #1e132b;
@@ -249,10 +250,6 @@ header {
   transform: rotate(-45deg) translate(6px,-6px);
 }
 
-.titulo-finup {
-  color: #4d2c62 !important;
-}
-
 .faq-card {
   background: var(--cor-card);
   padding: 25px;
@@ -380,11 +377,14 @@ header {
 }
 
 #titulo {
-  background: linear-gradient(to right,#8a2be2,#ff69b4);
+  background: var(--gradient-title);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  display: inline-block;
 }
 
 .title {
