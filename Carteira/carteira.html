@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carteira</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="./carteira.css" />
+  <link rel="stylesheet" href="../FAQ/FAQ.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../dashboard.css">
+
+</head>
+
+<body>
+  <header class="level">
+    <div class="level-left">
+      <img src="assets/FinupLogo.png" alt="FinUp" width="120" />
+      <nav class="menu level-item ml-6 desktop-menu">
+        <a href="#">Home</a>
+        <a href="#">Missões</a>
+        <a href="#">Carteira</a>
+        <a href="#">Materiais</a>
+        <a href="#">Ranking</a>
+        <a href="#" class="has-text-weight-bold">Ajuda</a>
+      </nav>
+    </div>
+
+    <div class="level-right desktop-user">
+      <img src="assets/Raio.png" alt="Streak">
+      <img src="assets/Xp.png" class="level-item" alt="XP">
+      <img src="assets/notificacao.png" class="level-item" width="22" alt="Notificações" />
+      <div class="level-item">
+        <img src="assets/userLogo.svg" width="32" class="mr-2" alt="Usuário" />
+        Nome de usuário
+      </div>
+    </div>
+
+    <div class="mobile-menu-toggle">
+      <button class="menu-button" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu-overlay">
+      <div class="mobile-menu-content">
+        <div class="mobile-menu-header">
+          <img src="assets/FinupLogo.png" alt="FinUp" width="120" />
+          <button class="close-button" aria-label="Fechar menu">×</button>
+        </div>
+
+        <nav class="mobile-nav">
+          <a href="#"><i class="fas fa-home"></i>Home</a>
+          <a href="#"><i class="fas fa-flag"></i>Missões</a>
+          <a href="#"><i class="fas fa-wallet"></i>Carteira</a>
+          <a href="#"><i class="fas fa-book"></i>Materiais</a>
+          <a href="#"><i class="fas fa-trophy"></i>Ranking</a>
+          <a href="#" class="has-text-weight-bold"><i class="fas fa-question-circle"></i>Ajuda</a>
+        </nav>
+
+        <div class="mobile-user-info">
+          <div class="user-profile">
+            <img src="assets/userLogo.svg" width="40" alt="Usuário" />
+            <div class="user-details">
+              <span class="user-name">Nome de usuário</span>
+              <div class="user-stats">
+                <div class="stat">
+                  <img src="assets/Raio.png" alt="Streak" width="16">
+                  <span>5 dias</span>
+                </div>
+                <div class="stat">
+                  <img src="assets/Xp.png" alt="XP" width="16">
+                  <span>1.250 XP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-notification">
+            <img src="assets/notificacao.png" alt="Notificações" width="20">
+            <span class="notification-badge">3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome-banner">
+      <img src="../assets/piggy-bank (1) 1.svg" alt="" />
+      <div class="welcome-text">
+        <h2>Carteira Inteligente</h2>
+        <p>Acompanhe seus ganhos, gastos e saldo em tempo real — e veja seu progresso financeiro crescer a cada dia</p>
+      </div>
+    </section>
+    <div>
+      <div class="tabs is-toggle">
+        <ul>
+          <li class="is-active">
+            <a>
+              <span>Este mês</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Mês passado</span>
+            </a>
+          </li>
+          <li>
+            <a>
+
+              <span>Este ano</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <span>Últimos 12 meses</span>
+            </a>
+            
+          </li>
+        </ul>
+        <button class="button">
+    <span class="icon">
+      <i class="fas fa-calendar"></i>
+    </span>
+    <span>Selecione o período</span>
+  </button>
+      </div>
+    </div>
+    <div class="section">
+      <div class="dashboard-hero">
+        <div class="dashboard-intro">
+          <h1>Olá, Caio!</h1>
+          <p class="subtitle">Acompanhe seu progresso financeiro</p>
+        </div>
+        <div class="dashboard-stats">
+          <div class="stat-card">
+            <p class="small">Saldo Atual</p>
+            <p class="big">R$ 1.908,00</p>
+          </div>
+          <div class="stat-card">
+            <p class="small">Renda</p>
+            <p class="big">R$ 3.908,00</p>
+          </div>
+          <div class="stat-card">
+            <p class="small">Despesas</p>
+            <p class="big">R$ 2.908,00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button class="action-btn add">Adicionar renda</button>
+        <button class="action-btn remove">Adicionar despesa</button>
+        <button class="action-btn transfer">Transferir dinheiro</button>
+      </div>
+
+      <div class="Caixa">
+        <div class="box">
+          <p>Saldo Atual</p>
+          <p>R$ 1.908,00</p>
+        </div>
+        <div class="box">
+          <p>Renda</p>
+          <p>R$ 3.908,00</p>
+        </div>
+        <div class="box">
+          <p>Despesas</p>
+          <p>R$ 2.908,00</p>
+        </div>
+      </div>
+      <div class="Caixa">
+        <div class="box">
+          <p>Adicionar renda</p>
+          <p>Crie uma renda manualmente</p>
+        </div>
+        <div class="box">
+          <p>Adicionar despesa</p>
+          <p>Crie uma despesa</p>
+        </div>
+        <div class="box">
+          <p>Transferir dinheiro</p>
+          <p>Selecione o valor e faça uma transferência</p>
+        </div>
+      </div>
+      <div class="Caixa">
+        <div class="box categories">
+          <p>Despesas por categoria</p>
+          <div class="pie-placeholder"></div>
+          <ul>
+            <li>Casa 41,35%</li>
+            <li>Cartão de credito 21,51%</li>
+            <li>Transporte 13,47%</li>
+            <li>Mantimentos 9,97%</li>
+            <li>Compras 3,35%</li>
+          </ul>
+        </div>
+        <div class="box transactions">
+          <p>Últimas transações </p>
+          <p>Verifique suas últimas transações</p>
+          <table>
+            <tr>
+              <th>Descrição</th>
+              <th>Método</th>
+              <th>Data</th>
+              <th>Quantia</th>
+            </tr>
+            <tr>
+              <td>Supermercado XYZ</td>
+              <td>Mantimentos</td>
+              <td>01/06/2024</td>
+              <td>R$ 150,00</td>
+              <td>
+                <img src="./icone.svg" alt="">
+              </td>
+            </tr>
+            <tr>
+              <td>Transporte</td>
+              <td>30/05/2024</td>
+              <td>R$ 45,00</td>
+              <td><img src="./icone.svg" alt=""></td>
+            </tr>
+            <tr>
+              <td>Aluguel Apartamento</td>
+              <td>Casa</td>
+              <td>29/05/2024</td>
+              <td>R$ 1.200,00</td>
+              <td><img src="./icone.svg" alt=""></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

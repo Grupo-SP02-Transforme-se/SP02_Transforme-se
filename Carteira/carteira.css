@@ -1,0 +1,81 @@
+:root{
+  --purple-1: #7f3bdc;
+  --purple-2: #8e5fe3;
+  --accent: #6d39b7;
+  --card-bg: #ffffff;
+  --muted: #7a7a7a;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background: #f4f5f8;
+  margin:0;
+  color:#222;
+}
+
+/* Dashboard hero */
+.dashboard-hero{
+  margin: 24px auto;
+  padding: 28px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--purple-1) 0%, var(--purple-2) 100%);
+  color: #fff;
+  max-width: 1050px;
+}
+
+.dashboard-intro h1{
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+.dashboard-intro .subtitle{
+  opacity: 0.95;
+  margin-top: 6px;
+}
+
+.dashboard-stats{
+  display:flex;
+  gap:16px;
+  margin-top: 14px;
+}
+.stat-card{
+  flex:1;
+  background: rgba(255,255,255,0.98);
+  color: #222;
+  border-radius: 8px;
+  padding: 18px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.stat-card .small{font-size:14px;color:var(--muted)}
+.stat-card .big{font-size:22px;font-weight:700;margin-top:6px}
+
+.actions-row{max-width:1050px;margin:20px auto;display:flex;gap:12px;padding:0 12px}
+.action-btn{flex:1;padding:14px;border-radius:8px;border:none;cursor:pointer}
+.action-btn.add{background:#e9fff3;color:#0a7a44}
+.action-btn.remove{background:#fff0f2;color:#a30b2d}
+.action-btn.transfer{background:#eef6ff;color:#1b4fa9}
+
+/* grid layout for main cards */
+.section{max-width:1050px;margin:0 auto;padding:16px}
+.Caixa{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.Caixa .box{background:var(--card-bg);border-radius:10px;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+.Caixa .box p{margin:0 0 8px}
+
+.categories .pie-placeholder{height:170px;width:170px;border-radius:50%;background:conic-gradient(#7f3bdc,#f0529f,#39c5a5,#4f98e1,#e7a22a);margin-bottom:10px}
+.categories ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.categories li{padding-left:8px}
+
+.transactions table{width:100%;border-collapse:collapse}
+.transactions th{font-weight:600;text-align:left;padding:9px 10px;color:#6b6b6b}
+.transactions td{padding:10px;border-top:1px solid #eef0f2}
+
+/* Responsive */
+@media (max-width:900px){
+  .dashboard-stats{flex-direction:column}
+  .Caixa{grid-template-columns:1fr}
+  .actions-row{flex-direction:column}
+}
+
+ 
